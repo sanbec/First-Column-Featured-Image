@@ -1,21 +1,21 @@
-=== Add Featured Image Column ===
+=== First Column Featured Image ===
 
-Contributors: littler.chicken
-Donate link: https://robincornett.com/donate/
+
 Tags: featured image, admin columns
 Requires at least: 4.1
-Tested up to: 5.2
+Tested up to: 5.5
 Stable tag: 1.1.5
-License: GPL-2.0+
-License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+License: GPL-3.0+
+License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
-This plugin adds a featured image column to any post type which supports featured images. See which posts have a featured image at a glance!
+
+This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. 
+
 
 == Description ==
 
-This is a little plugin which adds a featured image column to WordPress. It automatically adds a column to any post type which supports a featured image. The code is pulled almost directly from my plugin [Display Featured Image for Genesis](http://wordpress.org/plugins/display-featured-image-genesis/).
+This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. It's an improvement from the plugin [Add Featured Image Column] (https://wordpress.org/plugins/add-featured-image-column/).
 
-Banner/icon image credit: [Lauren Mancke on Minimography](http://minimography.com/).
 
 == Installation ==
 

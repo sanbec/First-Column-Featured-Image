@@ -1,23 +1,23 @@
 <?php
 /**
- * Simple plugin to add the post thumbnail to the WordPress Admin
+ * This simple plugin add the post thumbnail to the first column of WordPress Admin 
  *
- * @package   AddFeaturedImageColumn
- * @author    Robin Cornett <hello@robincornett.com>
- * @license   GPL-2.0+
- * @link      https://robincornett.com
- * @copyright 2015-2020 Robin Cornett Creative, LLC
+ * @package   FirstColumnFeaturedImage 
+ * @author    Santiago Becerra <santi@wpcombo.com>
+ * @license   GPL-3.0+
+ * @link      https://wpcombo.com
+ * @copyright 2020 WPCombo OU
  *
  * @wordpress-plugin
- * Plugin Name:       Add Featured Image Column
- * Plugin URI:        https://github.com/robincornett/add-featured-image-column/
+ * Plugin Name:       First Column Featured Image
+ * Plugin URI:        https://github.com/sanbec/First-Column-Featured-Image
  * Description:       This plugin adds a featured image column to the WordPress admin.
- * Version:           1.1.6
- * Author:            Robin Cornett
- * Author URI:        https://robincornett.com
- * Text Domain:       add-featured-image-column
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Version:           1.0
+ * Author:            Santiago Becerra
+ * Author URI:        https://wpcombo.com
+ * Text Domain:       first-column-featured-image
+ * License:           GPL-3.0+
+ * License URI:       https://www.gnu.org/licenses/gpl-3.0.txt
  */
 
 // If this file is called directly, abort.
@@ -25,24 +25,24 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! defined( 'ADDFEATUREDIMAGECOLUMN_BASENAME' ) ) {
-	define( 'ADDFEATUREDIMAGECOLUMN_BASENAME', plugin_basename( __FILE__ ) );
+if ( ! defined( 'FIRSTCOLUMNFEATUREDIMAGE_BASENAME' ) ) {
+	define( 'FIRSTCOLUMNFEATUREDIMAGE_BASENAME', plugin_basename( __FILE__ ) );
 }
 
 // Include classes
-function addfeaturedimagecolumn_require() {
+function firstcolumnfeaturedimage_require() {
 	$files = array(
-		'class-addfeaturedimagecolumn',
+		'class-firstcolumnfeaturedimage',
 	);
 
 	foreach ( $files as $file ) {
 		require plugin_dir_path( __FILE__ ) . 'includes/' . $file . '.php';
 	}
 }
-addfeaturedimagecolumn_require();
+firstcolumnfeaturedimage_require();
 
 // Instantiate main class
-$addfeaturedimagecolumn = new AddFeaturedImageColumn();
+$firstcolumnfeaturedimage = new FirstColumnFeaturedImage();
 
 // Run the plugin
-$addfeaturedimagecolumn->run();
+$firstcolumnfeaturedimage->run();
