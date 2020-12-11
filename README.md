@@ -48,8 +48,9 @@ No questions. Just activate and enjoy.
 * Built by [Santiago Becerra](https://wpcombo.com/)
 
 ## Changelog
-### 1.1.7
-* improved: svg image for posts with no featured image
+### 1.2.0
+* new: svg image for posts with no featured image
+* improved: better code 
 
 ### 1.1.6
 * changed: featured image column no longer loads (duplicate) for WooCommerce products

@@ -32,9 +32,13 @@ No questions. Just activate and enjoy.
 
 == Upgrade Notice ==
 
-Updated output if a post has no featured image
+SVG image for posts with no featured image.
 
 == Changelog ==
+
+= 1.2.0 =
+* new: svg image for posts with no featured image
+* improved: better code 
 
 = 1.1.5 =
 * improved: output for posts with no featured image
