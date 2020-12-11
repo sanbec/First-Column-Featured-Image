@@ -4,8 +4,8 @@ Contributors: littler.chicken
 Donate link: https://robincornett.com/donate/
 Tags: featured image, admin columns
 Requires at least: 4.1
-Tested up to: 5.6
-Stable tag: 1.1.6
+Tested up to: 5.2
+Stable tag: 1.1.5
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -32,12 +32,9 @@ No questions. Just activate and enjoy.
 
 == Upgrade Notice ==
 
-Duplicate image column removed from WooCommerce products
+Updated output if a post has no featured image
 
 == Changelog ==
-
-= 1.1.6 =
-* changed: featured image column no longer loads (duplicate) for WooCommerce products
 
 = 1.1.5 =
 * improved: output for posts with no featured image
