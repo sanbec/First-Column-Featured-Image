@@ -1,60 +1,101 @@
+# Copyright (C) 2019 First Column Featured Image
+# This file is distributed under the same license as the First Column Featured Image package.
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Project-Id-Version: Add Featured Image Column\n"
-"POT-Creation-Date: 2019-04-29 12:08-0400\n"
-"PO-Revision-Date: 2019-11-12 23:43+0100\n"
-"Language-Team: Robin Cornett <hello@robincornett.com>\n"
+"Project-Id-Version: First Column Featured Image 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/first-column-"
+"featured-image\n"
+"POT-Creation-Date: 2019-12-28 00:08:32+00:00\n"
+"PO-Revision-Date: 2020-12-12 01:03+0100\n"
+"Last-Translator: Santiago Becerra <santi@wpcombo.com>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-WPHeader: add-featured-image-column.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: es_ES\n"
-"X-Poedit-SearchPath-0: languages\n"
-"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: includes\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/class-addfeaturedimagecolumn.php:61
-msgid ""
-"You are using Display Featured Image for Genesis and do not need to use Add "
-"Featured Image Column, so it has been deactivated."
-msgstr ""
-"Estás usando «Display Featured Image for Genesis», por lo que no necesitas "
-"usar« Add Featured Image Column», así que se ha desactivado."
+#: includes/class-firstcolumnfeaturedimage.php:50
+msgid "Feat. Image Col. Settings"
+msgstr "Ajustes de Image Column"
 
-#: includes/class-addfeaturedimagecolumn.php:81
+#: includes/class-firstcolumnfeaturedimage.php:51
+msgid "Featured Image Column"
+msgstr "Columna de imagen destacada"
+
+#: includes/class-firstcolumnfeaturedimage.php:64
+msgid "Style Settings"
+msgstr "Ajustes de estilo"
+
+#: includes/class-firstcolumnfeaturedimage.php:71
+msgid "Choose the size and shape of the featured image at the list table"
+msgstr "Elige el tamaño y la forma de la imagen destacada en la tabla de lista"
+
+#: includes/class-firstcolumnfeaturedimage.php:83
+msgid "Featured Image Size:"
+msgstr "Tamaño de imagen destacada:"
+
+#: includes/class-firstcolumnfeaturedimage.php:96
+msgid "Shape: "
+msgstr "Forma: "
+
+#: includes/class-firstcolumnfeaturedimage.php:104
+msgid "Post Types"
+msgstr "Tipos de contenido"
+
+#: includes/class-firstcolumnfeaturedimage.php:111
+msgid ""
+"Select the post types where you want the featured image column to be "
+"displayed"
+msgstr ""
+"Seleccione los tipos de contenido en los que quieres que se muestre la "
+"columna de imagen destacada"
+
+#: includes/class-firstcolumnfeaturedimage.php:174
+msgid "Circle"
+msgstr "Círculo"
+
+#: includes/class-firstcolumnfeaturedimage.php:177
+msgid "Square"
+msgstr "Cuadrado"
+
+#: includes/class-firstcolumnfeaturedimage.php:231
+msgid "First Column Featured Image Settings"
+msgstr "Ajustes de First Column Featured Image"
+
+#: includes/class-firstcolumnfeaturedimage.php:266
 msgid "Image"
 msgstr "Imagen"
 
-#: includes/class-addfeaturedimagecolumn.php:144
+#: includes/class-firstcolumnfeaturedimage.php:329
+#: includes/class-firstcolumnfeaturedimage.php:330
 msgid "No image"
 msgstr "Sin imagen"
 
 #. Plugin Name of the plugin/theme
-msgid "Add Featured Image Column"
-msgstr "Add Featured Image Column"
+msgid "First Column Featured Image"
+msgstr "First Column Featured Image"
 
 #. Plugin URI of the plugin/theme
-msgid "http://github.com/robincornett/add-featured-image-column/"
-msgstr "http://github.com/robincornett/add-featured-image-column/"
+msgid "https://github.com/sanbec/First-Column-Featured-Image"
+msgstr "https://github.com/sanbec/First-Column-Featured-Image"
 
 #. Description of the plugin/theme
 msgid "This plugin adds a featured image column to the WordPress admin."
 msgstr ""
-"Este plugin añade una columna con la imagen destacada en la administración "
-"de WordPress."
+"Este plugin añade una columna con la imagen destacada en las tablas de "
+"listas del escritorio de WordPress."
 
 #. Author of the plugin/theme
-msgid "Robin Cornett"
-msgstr "Robin Cornett"
+msgid "Santiago Becerra"
+msgstr "Santiago Becerra"
 
 #. Author URI of the plugin/theme
-msgid "https://robincornett.com"
-msgstr "https://robincornett.com"
+msgid "https://wpcombo.com"
+msgstr "https://wpcombo.com"

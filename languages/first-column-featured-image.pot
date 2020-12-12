@@ -1,46 +1,79 @@
-#, fuzzy
+# Copyright (C) 2019 First Column Featured Image
+# This file is distributed under the same license as the First Column Featured Image package.
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: Add Featured Image Column\n"
-"POT-Creation-Date: 2020-10-24 10:55-0400\n"
-"PO-Revision-Date: 2016-07-30 15:05-0400\n"
-"Last-Translator: Robin Cornett <hello@robincornett.com>\n"
-"Language-Team: Robin Cornett <hello@robincornett.com>\n"
+"Project-Id-Version: First Column Featured Image\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/first-column-"
+"featured-image\n"
+"POT-Creation-Date: 2019-12-28 00:08:32+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-WPHeader: add-featured-image-column.php\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: languages\n"
-"X-Poedit-SearchPath-1: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: includes/class-addfeaturedimagecolumn.php:64
-msgid ""
-"You are using Display Featured Image for Genesis and do not need to use Add "
-"Featured Image Column, so it has been deactivated."
+#: includes/class-firstcolumnfeaturedimage.php:50
+msgid "Feat. Image Col. Settings"
 msgstr ""
 
-#: includes/class-addfeaturedimagecolumn.php:84
+#: includes/class-firstcolumnfeaturedimage.php:51
+msgid "Featured Image Column"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:64
+msgid "Style Settings"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:71
+msgid "Choose the size and shape of the featured image at the list table"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:83
+msgid "Featured Image Size:"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:96
+msgid "Shape: "
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:104
+msgid "Post Types"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:111
+msgid ""
+"Select the post types where you want the featured image column to be "
+"displayed"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:174
+msgid "Circle"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:177
+msgid "Square"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:231
+msgid "First Column Featured Image Settings"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:266
 msgid "Image"
 msgstr ""
 
-#: includes/class-addfeaturedimagecolumn.php:148
+#: includes/class-firstcolumnfeaturedimage.php:329
+#: includes/class-firstcolumnfeaturedimage.php:330
 msgid "No image"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "Add Featured Image Column"
+msgid "First Column Featured Image"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/robincornett/add-featured-image-column/"
+msgid "https://github.com/sanbec/First-Column-Featured-Image"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -48,9 +81,9 @@ msgid "This plugin adds a featured image column to the WordPress admin."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Robin Cornett"
+msgid "Santiago Becerra"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://robincornett.com"
+msgid "https://wpcombo.com"
 msgstr ""
