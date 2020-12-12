@@ -1,89 +1,88 @@
-# Copyright (C) 2019 First Column Featured Image
-# This file is distributed under the same license as the First Column Featured Image package.
+# Copyright (C) 2020 Santiago Becerra
+# This file is distributed under the same license as the First Column Featured Image plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: First Column Featured Image\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/first-column-"
-"featured-image\n"
-"POT-Creation-Date: 2019-12-28 00:08:32+00:00\n"
+"Project-Id-Version: First Column Featured Image 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/first-column-featured-image\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2020-12-12T01:33:42+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: first-column-featured-image\n"
 
-#: includes/class-firstcolumnfeaturedimage.php:50
-msgid "Feat. Image Col. Settings"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:51
-msgid "Featured Image Column"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:64
-msgid "Style Settings"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:71
-msgid "Choose the size and shape of the featured image at the list table"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:83
-msgid "Featured Image Size:"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:96
-msgid "Shape: "
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:104
-msgid "Post Types"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:111
-msgid ""
-"Select the post types where you want the featured image column to be "
-"displayed"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:174
-msgid "Circle"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:177
-msgid "Square"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:231
-msgid "First Column Featured Image Settings"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:266
-msgid "Image"
-msgstr ""
-
-#: includes/class-firstcolumnfeaturedimage.php:329
-#: includes/class-firstcolumnfeaturedimage.php:330
-msgid "No image"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
+#. Plugin Name of the plugin
 msgid "First Column Featured Image"
 msgstr ""
 
-#. Plugin URI of the plugin/theme
+#. Plugin URI of the plugin
 msgid "https://github.com/sanbec/First-Column-Featured-Image"
 msgstr ""
 
-#. Description of the plugin/theme
+#. Description of the plugin
 msgid "This plugin adds a featured image column to the WordPress admin."
 msgstr ""
 
-#. Author of the plugin/theme
+#. Author of the plugin
 msgid "Santiago Becerra"
 msgstr ""
 
-#. Author URI of the plugin/theme
+#. Author URI of the plugin
 msgid "https://wpcombo.com"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:56
+msgid "Feat. Image Col. Settings"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:57
+msgid "Featured Image Column"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:71
+msgid "Style Settings"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:78
+msgid "Choose the size and shape of the featured image at the list table"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:90
+msgid "Featured Image Size:"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:103
+msgid "Shape: "
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:111
+msgid "Post Types"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:118
+msgid "Select the post types where you want the featured image column to be displayed"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:184
+msgid "Circle"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:187
+msgid "Square"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:241
+msgid "First Column Featured Image Settings"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:278
+msgid "Image"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:340
+#: includes/class-firstcolumnfeaturedimage.php:341
+msgid "No image"
 msgstr ""

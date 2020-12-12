@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: First Column Featured Image 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/first-column-"
 "featured-image\n"
-"POT-Creation-Date: 2019-12-28 00:08:32+00:00\n"
-"PO-Revision-Date: 2020-12-12 01:03+0100\n"
+"POT-Creation-Date: 2020-12-12T01:33:42+01:00\n"
+"PO-Revision-Date: 2020-12-12 01:39+0100\n"
 "Last-Translator: Santiago Becerra <santi@wpcombo.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -21,35 +21,57 @@ msgstr ""
 "X-Poedit-SearchPath-1: includes\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: includes/class-firstcolumnfeaturedimage.php:50
+#. Plugin Name of the plugin
+msgid "First Column Featured Image"
+msgstr "First Column Featured Image"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/sanbec/First-Column-Featured-Image"
+msgstr "https://github.com/sanbec/First-Column-Featured-Image"
+
+#. Description of the plugin
+msgid "This plugin adds a featured image column to the WordPress admin."
+msgstr ""
+"Este plugin añade una columna con la imagen destacada en las tablas de "
+"listas del escritorio de WordPress."
+
+#. Author of the plugin
+msgid "Santiago Becerra"
+msgstr "Santiago Becerra"
+
+#. Author URI of the plugin
+msgid "https://wpcombo.com"
+msgstr "https://wpcombo.com"
+
+#: includes/class-firstcolumnfeaturedimage.php:56
 msgid "Feat. Image Col. Settings"
 msgstr "Ajustes de Image Column"
 
-#: includes/class-firstcolumnfeaturedimage.php:51
+#: includes/class-firstcolumnfeaturedimage.php:57
 msgid "Featured Image Column"
 msgstr "Columna de imagen destacada"
 
-#: includes/class-firstcolumnfeaturedimage.php:64
+#: includes/class-firstcolumnfeaturedimage.php:71
 msgid "Style Settings"
 msgstr "Ajustes de estilo"
 
-#: includes/class-firstcolumnfeaturedimage.php:71
+#: includes/class-firstcolumnfeaturedimage.php:78
 msgid "Choose the size and shape of the featured image at the list table"
 msgstr "Elige el tamaño y la forma de la imagen destacada en la tabla de lista"
 
-#: includes/class-firstcolumnfeaturedimage.php:83
+#: includes/class-firstcolumnfeaturedimage.php:90
 msgid "Featured Image Size:"
 msgstr "Tamaño de imagen destacada:"
 
-#: includes/class-firstcolumnfeaturedimage.php:96
+#: includes/class-firstcolumnfeaturedimage.php:103
 msgid "Shape: "
 msgstr "Forma: "
 
-#: includes/class-firstcolumnfeaturedimage.php:104
+#: includes/class-firstcolumnfeaturedimage.php:111
 msgid "Post Types"
 msgstr "Tipos de contenido"
 
-#: includes/class-firstcolumnfeaturedimage.php:111
+#: includes/class-firstcolumnfeaturedimage.php:118
 msgid ""
 "Select the post types where you want the featured image column to be "
 "displayed"
@@ -57,45 +79,23 @@ msgstr ""
 "Seleccione los tipos de contenido en los que quieres que se muestre la "
 "columna de imagen destacada"
 
-#: includes/class-firstcolumnfeaturedimage.php:174
+#: includes/class-firstcolumnfeaturedimage.php:184
 msgid "Circle"
 msgstr "Círculo"
 
-#: includes/class-firstcolumnfeaturedimage.php:177
+#: includes/class-firstcolumnfeaturedimage.php:187
 msgid "Square"
 msgstr "Cuadrado"
 
-#: includes/class-firstcolumnfeaturedimage.php:231
+#: includes/class-firstcolumnfeaturedimage.php:241
 msgid "First Column Featured Image Settings"
 msgstr "Ajustes de First Column Featured Image"
 
-#: includes/class-firstcolumnfeaturedimage.php:266
+#: includes/class-firstcolumnfeaturedimage.php:278
 msgid "Image"
 msgstr "Imagen"
 
-#: includes/class-firstcolumnfeaturedimage.php:329
-#: includes/class-firstcolumnfeaturedimage.php:330
+#: includes/class-firstcolumnfeaturedimage.php:340
+#: includes/class-firstcolumnfeaturedimage.php:341
 msgid "No image"
 msgstr "Sin imagen"
-
-#. Plugin Name of the plugin/theme
-msgid "First Column Featured Image"
-msgstr "First Column Featured Image"
-
-#. Plugin URI of the plugin/theme
-msgid "https://github.com/sanbec/First-Column-Featured-Image"
-msgstr "https://github.com/sanbec/First-Column-Featured-Image"
-
-#. Description of the plugin/theme
-msgid "This plugin adds a featured image column to the WordPress admin."
-msgstr ""
-"Este plugin añade una columna con la imagen destacada en las tablas de "
-"listas del escritorio de WordPress."
-
-#. Author of the plugin/theme
-msgid "Santiago Becerra"
-msgstr "Santiago Becerra"
-
-#. Author URI of the plugin/theme
-msgid "https://wpcombo.com"
-msgstr "https://wpcombo.com"
