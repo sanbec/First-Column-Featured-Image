@@ -381,9 +381,10 @@ function post_types_cb(array $args) {
 				.column-featured_image { width: 85px; }
 				.column-featured_image img {
 					margin: 0 auto; 
-					max-width: <?=esc_attr(get_option('fcfi_size', '70px'));?>;
-					max-height: <?=esc_attr(get_option('fcfi_size', '70px'));?>;
-					border-radius: <?php if (esc_attr(get_option('fcfi_shape', 'circle'))=='square') {echo 'none';} else {echo '50%';}   ?>; border: 3px solid transparent;}
+					width: <?=esc_attr(get_option('fcfi_size', '70px'));?>;
+					height: <?=esc_attr(get_option('fcfi_size', '70px'));?>;
+					object-fit: cover;
+					border-radius: <?php if (esc_attr(get_option('fcfi_shape', 'circle'))=='square') {echo 'unset';} else {echo '50%';}   ?>; border: 3px solid transparent;}
 				.column-featured_image img:hover { border-color: blue;}
 				@media screen and (max-width: 782px) {
 					.column-featured_image, .wp-list-table .is-expanded td.column-featured_image:not(.hidden) {display: table-cell !important; width: 52px;}
