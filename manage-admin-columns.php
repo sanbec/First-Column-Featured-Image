@@ -1,21 +1,21 @@
 <?php
 /**
- * This simple plugin add the post thumbnail to the first column of WordPress Admin 
+ * This plugin adds a featured image thumbnail column to WordPress admin dashboard for all types of posts 
  *
- * @package   FirstColumnFeaturedImage 
+ * @package   ManageAdminColumns 
  * @author    Santiago Becerra <santi@wpcombo.com>
  * @license   GPL-3.0+
  * @link      https://wpcombo.com
  * @copyright 2020 WPCombo OU
  *
  * @wordpress-plugin
- * Plugin Name:       First Column Featured Image
- * Plugin URI:        https://github.com/sanbec/First-Column-Featured-Image
+ * Plugin Name:       Manage Admin Columns
+ * Plugin URI:        https://github.com/sanbec/manage-admin-columns
  * Description:       This plugin adds a featured image column to the WordPress admin.
  * Version:           1.0
  * Author:            Santiago Becerra
  * Author URI:        https://wpcombo.com
- * Text Domain:       first-column-featured-image
+ * Text Domain:       manage-admin-columns
  * License:           GPL-3.0+
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.txt
  */
@@ -25,8 +25,8 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( ! defined( 'FIRSTCOLUMNFEATUREDIMAGE_BASENAME' ) ) {
-	define( 'FIRSTCOLUMNFEATUREDIMAGE_BASENAME', plugin_basename( __FILE__ ) );
+if ( ! defined( 'MANAGEADMINCOLUMNS_BASENAME' ) ) {
+	define( 'MANAGEADMINCOLUMNS_BASENAME', plugin_basename( __FILE__ ) );
 }
 
 // Include classes

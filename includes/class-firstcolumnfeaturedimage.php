@@ -3,7 +3,7 @@
 /**
  * Main plugin class
  *
- * @package   FirstColumnFeaturedImage 
+ * @package   ManageAdminColumns
  * @author    Santiago Becerra <santi@wpcombo.com>
  * @license   GPL-3.0+
  * @link      https://wpcombo.com
@@ -29,7 +29,7 @@ class FirstColumnFeaturedImage {
  * The ajde_events are events from eventON plugins.
  * They have their own featured image in the title column
  */
-		add_filter( 'firstcolumnfeaturedimage_post_types', 'remove_ajde_events' );
+		add_filter( 'fcfi_post_types', 'remove_ajde_events' );
 		function remove_ajde_events( $post_types ) {
 			unset( $post_types['ajde_events'] );
 			return $post_types;
@@ -41,7 +41,7 @@ class FirstColumnFeaturedImage {
  * @since 1.0
  */
 	public function load_textdomain() {
-		load_plugin_textdomain( 'first-column-featured-image', false, plugin_dir_path( __FILE__ ) . '/languages/' );
+		load_plugin_textdomain( 'manage-admin-columns', false, plugin_dir_path( __FILE__ ) . '/languages/' );
 	}
 
 /*
@@ -53,8 +53,8 @@ class FirstColumnFeaturedImage {
  */
 	public function add_admin_link() {
 		add_options_page(
-			__( 'Feat. Image Col. Settings', 'first-column-featured-image' ), // title of the settings page
-			__('Featured Image Column', 'first-column-featured-image' ),// title of the submenu
+			__( 'Feat. Image Col. Settings', 'manage-admin-columns' ), // title of the settings page
+			__('Featured Image Column', 'manage-admin-columns' ),// title of the submenu
 			'manage_options', // capability of the user to see this page
 			'fcfi-settings', // slug of the settings page
 			array( $this, 'settings_page_html') // callback function when rendering the page
@@ -68,14 +68,14 @@ class FirstColumnFeaturedImage {
 		// Add the style settings section
 		add_settings_section(
 			'settings-section-style', // id of the section
-			__('Style Settings', 'first-column-featured-image' ),// title to be displayed
+			__('Style Settings', 'manage-admin-columns' ),// title to be displayed
 			'style_cb', // callback function to be called when opening section, currently empty
 			'fcfi-settings' // page on which to display the section
 		);
 		
 		function style_cb( $args ) {
 		// echo section intro text here
-			echo __('Choose the size and shape of the featured image at the list table', 'first-column-featured-image');
+			echo __('Choose the size and shape of the featured image at the list table', 'manage-admin-columns');
 		}
 		
 		
@@ -87,7 +87,7 @@ class FirstColumnFeaturedImage {
 		// Add the size setting field on the style section
 		add_settings_field(
 			'size-field', // id of the settings field
-			esc_html__('Featured Image Size:', 'first-column-featured-image' ), // title
+			esc_html__('Featured Image Size:', 'manage-admin-columns' ), // title
 			array( $this, 'size_cb'), // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
@@ -100,7 +100,7 @@ class FirstColumnFeaturedImage {
 		// Add the shape setting field on the style section
 		add_settings_field(
 			'shape-field', // id of the settings field
-			__('Shape: ', 'first-column-featured-image' ), // title
+			__('Shape: ', 'manage-admin-columns' ), // title
 			array( $this, 'shape_cb'), // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
@@ -113,7 +113,7 @@ class FirstColumnFeaturedImage {
 		// Add the shape setting field on the style section
 		add_settings_field(
 			'border-field', // id of the settings field
-			__('Border ', 'first-column-featured-image' ), // title
+			__('Border ', 'manage-admin-columns' ), // title
 			array( $this, 'border_cb'), // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
@@ -121,14 +121,14 @@ class FirstColumnFeaturedImage {
 		// Add the post types section
 		add_settings_section(
 			'settings-section-cpt', // id of the section
-			__('Post Types', 'first-column-featured-image' ), // title to be displayed
+			__('Post Types', 'manage-admin-columns' ), // title to be displayed
 			'post_types_section_cb', // callback function to be called when opening section, currently empty
 			'fcfi-settings' // page on which to display the section
 		);
 
 		function post_types_section_cb( $args ) {
 		// echo section intro text here
-		echo __('Select the post types where you want the featured image column to be displayed', 'first-column-featured-image');
+		echo __('Select the post types where you want the featured image column to be displayed', 'manage-admin-columns');
 		}
 
 		// prepare loop the defined post types to add each setting
@@ -140,7 +140,7 @@ class FirstColumnFeaturedImage {
 		if ( class_exists( 'WooCommerce' ) ) {
 			unset( $post_types['product'] );
 		}
-		$post_types = apply_filters( 'firstcolumnfeaturedimage_post_types', $post_types, $args );
+		$post_types = apply_filters( 'fcfi_post_types', $post_types, $args );
 		// register the post types setting
 //delete_option('fcfi_post_types');
 		register_setting(
@@ -194,10 +194,10 @@ function shape_cb() {
 
 	printf( '<select name="fcfi_shape"><option ' );
 	if ($shape=='circle') echo "selected ";
-	printf( 'value="circle">%s</option>',  esc_html__( 'Circle', 'first-column-featured-image' ) );
+	printf( 'value="circle">%s</option>',  esc_html__( 'Circle', 'manage-admin-columns' ) );
 	echo  '<option ';
 	if ($shape=='square') echo "selected ";
-	printf( 'value="square">%s</option>',  esc_html__( 'Square', 'first-column-featured-image' ) );
+	printf( 'value="square">%s</option>',  esc_html__( 'Square', 'manage-admin-columns' ) );
 	echo '</select>';
 }
 
@@ -210,7 +210,7 @@ function border_cb() {
 	if ($border=='ON') $checked=" checked "; else $checked="";
 	echo '<input type="hidden" name="fcfi_border" value="OFF" />
 	<input type="checkbox" name="fcfi_border" value="ON"'.$checked.'>
-	<span>'.esc_html__( 'Show border on hover', 'first-column-featured-image' ).'</span>';
+	<span>'.esc_html__( 'Show border on hover', 'manage-admin-columns' ).'</span>';
 }
 				/** 
 		 * Get the post types settings option array and print its values
@@ -262,7 +262,7 @@ function post_types_cb(array $args) {
 		?>
 
 <div class="wrap">
-	<h2><?=__('First Column Featured Image Settings', 'first-column-featured-image' )?></h2>
+	<h2><?=__('Manage Admin Columns Settings', 'manage-admin-columns' )?></h2>
 		<form method="POST" action="options.php">
 		<?php 
 			settings_fields('fcfi-settings'); 
@@ -299,7 +299,7 @@ function post_types_cb(array $args) {
 	 */
 	public function add_featured_image_column( $columns ) {
 
-		$first_column = array('featured_image' => __( 'Image', 'first-column-featured-image' ));
+		$first_column = array('featured_image' => __( 'Image', 'manage-admin-columns' ));
 
 		return array_merge( $first_column, $columns );
 
@@ -361,8 +361,8 @@ function post_types_cb(array $args) {
 		}
 		$image_id = get_post_thumbnail_id( $post_id );
 		if ( ! $image_id ) {	
-			printf( '<img src="%1$s" alt="%2$s" title="%2$s" />', plugins_url( '/assets/sin-imagen.svg', __FILE__ ), esc_html__( 'No image', 'first-column-featured-image' ) );
-			printf( '<span class="screen-reader-text">%s</span>', esc_html__( 'No image', 'first-column-featured-image' ) );
+			printf( '<img src="%1$s" alt="%2$s" title="%2$s" />', plugins_url( '/assets/sin-imagen.svg', __FILE__ ), esc_html__( 'No image', 'manage-admin-columns' ) );
+			printf( '<span class="screen-reader-text">%s</span>', esc_html__( 'No image', 'manage-admin-columns' ) );
 			return;
 		}
 
@@ -385,7 +385,7 @@ function post_types_cb(array $args) {
 	protected function admin_column_image( $args ) {
 		$image_id = $args['image_id'];
 		$preview  = wp_get_attachment_image_src( $image_id, 'thumbnail' );
-		$preview  = apply_filters( 'firstcolumnfeaturedimage_thumbnail', $preview, $image_id );
+		$preview  = apply_filters( 'fcfi_thumbnail', $preview, $image_id );
 		if ( ! $preview ) {
 			return '';
 		}

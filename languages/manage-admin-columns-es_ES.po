@@ -3,10 +3,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: First Column Featured Image 1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/first-column-"
-"featured-image\n"
-"POT-Creation-Date: 2020-12-31T01:52:13+01:00\n"
-"PO-Revision-Date: 2020-12-31 01:58+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/manage-admin-"
+"columns\n"
+"POT-Creation-Date: 2020-12-31T02:52:27+01:00\n"
+"PO-Revision-Date: 2020-12-31 02:55+0100\n"
 "Last-Translator: Santiago Becerra <santi@wpcombo.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -22,12 +22,12 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin
-msgid "First Column Featured Image"
-msgstr "First Column Featured Image"
+msgid "Manage Admin Columns"
+msgstr "Manage Admin Columns"
 
 #. Plugin URI of the plugin
-msgid "https://github.com/sanbec/First-Column-Featured-Image"
-msgstr "https://github.com/sanbec/First-Column-Featured-Image"
+msgid "https://github.com/sanbec/manage-admin-columns"
+msgstr "https://github.com/sanbec/manage-admin-columns"
 
 #. Description of the plugin
 msgid "This plugin adds a featured image column to the WordPress admin."
@@ -96,8 +96,8 @@ msgid "Show border on hover"
 msgstr "Mostrar borde al pasar el cursor"
 
 #: includes/class-firstcolumnfeaturedimage.php:265
-msgid "First Column Featured Image Settings"
-msgstr "Ajustes de First Column Featured Image"
+msgid "Manage Admin Columns Settings"
+msgstr "Ajustes de Manage Admin Columns"
 
 #: includes/class-firstcolumnfeaturedimage.php:302
 msgid "Image"
@@ -107,3 +107,9 @@ msgstr "Imagen"
 #: includes/class-firstcolumnfeaturedimage.php:365
 msgid "No image"
 msgstr "Sin imagen"
+
+#~ msgid "First Column Featured Image"
+#~ msgstr "First Column Featured Image"
+
+#~ msgid "First Column Featured Image Settings"
+#~ msgstr "Ajustes de First Column Featured Image"
