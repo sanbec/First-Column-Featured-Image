@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: First Column Featured Image 1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/first-column-"
 "featured-image\n"
-"POT-Creation-Date: 2020-12-12T01:33:42+01:00\n"
-"PO-Revision-Date: 2020-12-12 01:39+0100\n"
+"POT-Creation-Date: 2020-12-31T01:52:13+01:00\n"
+"PO-Revision-Date: 2020-12-31 01:58+0100\n"
 "Last-Translator: Santiago Becerra <santi@wpcombo.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -67,11 +67,15 @@ msgstr "Tamaño de imagen destacada:"
 msgid "Shape: "
 msgstr "Forma: "
 
-#: includes/class-firstcolumnfeaturedimage.php:111
+#: includes/class-firstcolumnfeaturedimage.php:116
+msgid "Border "
+msgstr "Borde "
+
+#: includes/class-firstcolumnfeaturedimage.php:124
 msgid "Post Types"
 msgstr "Tipos de contenido"
 
-#: includes/class-firstcolumnfeaturedimage.php:118
+#: includes/class-firstcolumnfeaturedimage.php:131
 msgid ""
 "Select the post types where you want the featured image column to be "
 "displayed"
@@ -79,23 +83,27 @@ msgstr ""
 "Seleccione los tipos de contenido en los que quieres que se muestre la "
 "columna de imagen destacada"
 
-#: includes/class-firstcolumnfeaturedimage.php:184
+#: includes/class-firstcolumnfeaturedimage.php:197
 msgid "Circle"
 msgstr "Círculo"
 
-#: includes/class-firstcolumnfeaturedimage.php:187
+#: includes/class-firstcolumnfeaturedimage.php:200
 msgid "Square"
 msgstr "Cuadrado"
 
-#: includes/class-firstcolumnfeaturedimage.php:241
+#: includes/class-firstcolumnfeaturedimage.php:213
+msgid "Show border on hover"
+msgstr "Mostrar borde al pasar el cursor"
+
+#: includes/class-firstcolumnfeaturedimage.php:265
 msgid "First Column Featured Image Settings"
 msgstr "Ajustes de First Column Featured Image"
 
-#: includes/class-firstcolumnfeaturedimage.php:278
+#: includes/class-firstcolumnfeaturedimage.php:302
 msgid "Image"
 msgstr "Imagen"
 
-#: includes/class-firstcolumnfeaturedimage.php:340
-#: includes/class-firstcolumnfeaturedimage.php:341
+#: includes/class-firstcolumnfeaturedimage.php:364
+#: includes/class-firstcolumnfeaturedimage.php:365
 msgid "No image"
 msgstr "Sin imagen"

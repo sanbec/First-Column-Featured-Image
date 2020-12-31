@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2020-12-12T01:33:42+01:00\n"
+"POT-Creation-Date: 2020-12-31T01:52:13+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: first-column-featured-image\n"
@@ -58,31 +58,39 @@ msgstr ""
 msgid "Shape: "
 msgstr ""
 
-#: includes/class-firstcolumnfeaturedimage.php:111
+#: includes/class-firstcolumnfeaturedimage.php:116
+msgid "Border "
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:124
 msgid "Post Types"
 msgstr ""
 
-#: includes/class-firstcolumnfeaturedimage.php:118
+#: includes/class-firstcolumnfeaturedimage.php:131
 msgid "Select the post types where you want the featured image column to be displayed"
 msgstr ""
 
-#: includes/class-firstcolumnfeaturedimage.php:184
+#: includes/class-firstcolumnfeaturedimage.php:197
 msgid "Circle"
 msgstr ""
 
-#: includes/class-firstcolumnfeaturedimage.php:187
+#: includes/class-firstcolumnfeaturedimage.php:200
 msgid "Square"
 msgstr ""
 
-#: includes/class-firstcolumnfeaturedimage.php:241
+#: includes/class-firstcolumnfeaturedimage.php:213
+msgid "Show border on hover"
+msgstr ""
+
+#: includes/class-firstcolumnfeaturedimage.php:265
 msgid "First Column Featured Image Settings"
 msgstr ""
 
-#: includes/class-firstcolumnfeaturedimage.php:278
+#: includes/class-firstcolumnfeaturedimage.php:302
 msgid "Image"
 msgstr ""
 
-#: includes/class-firstcolumnfeaturedimage.php:340
-#: includes/class-firstcolumnfeaturedimage.php:341
+#: includes/class-firstcolumnfeaturedimage.php:364
+#: includes/class-firstcolumnfeaturedimage.php:365
 msgid "No image"
 msgstr ""
