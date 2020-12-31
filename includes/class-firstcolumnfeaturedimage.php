@@ -113,7 +113,7 @@ class FirstColumnFeaturedImage {
 		// Add the shape setting field on the style section
 		add_settings_field(
 			'border-field', // id of the settings field
-			__('Show border on hover: ', 'first-column-featured-image' ), // title
+			__('Border ', 'first-column-featured-image' ), // title
 			array( $this, 'border_cb'), // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
@@ -189,35 +189,29 @@ function size_cb() {
 		 * Get the shape settings option and print it value
 		 */
 
-		function shape_cb() {
-			$shape = esc_attr(get_option('fcfi_shape', 'circle'));
-	
-			printf( '<select name="fcfi_shape"><option ' );
-			if ($shape=='circle') echo "selected ";
-			printf( 'value="circle">%s</option>',  esc_html__( 'Circle', 'first-column-featured-image' ) );
-			echo  '<option ';
-			if ($shape=='square') echo "selected ";
-			printf( 'value="square">%s</option>',  esc_html__( 'Square', 'first-column-featured-image' ) );
-			echo '</select>';
-	
-	}
+function shape_cb() {
+	$shape = esc_attr(get_option('fcfi_shape', 'circle'));
+
+	printf( '<select name="fcfi_shape"><option ' );
+	if ($shape=='circle') echo "selected ";
+	printf( 'value="circle">%s</option>',  esc_html__( 'Circle', 'first-column-featured-image' ) );
+	echo  '<option ';
+	if ($shape=='square') echo "selected ";
+	printf( 'value="square">%s</option>',  esc_html__( 'Square', 'first-column-featured-image' ) );
+	echo '</select>';
+}
 
 		/** 
 		 * Get the border settings option and print it value
 		 */
 
-		function border_cb() {
-			$borfer = esc_attr(get_option('fcfi_border', 'ON'));
-	
-			printf( '<select name="fcfi_border"><option ' );
-			if ($borfer=='ON') echo "selected ";
-			printf( 'value="ON">%s</option>',  esc_html__( 'Yes', 'first-column-featured-image' ) );
-			echo  '<option ';
-			if ($borfer=='OFF') echo "selected ";
-			printf( 'value="OFF">%s</option>',  esc_html__( 'No', 'first-column-featured-image' ) );
-			echo '</select>';
-	
-	}
+function border_cb() {
+	$border = esc_attr(get_option('fcfi_border', 'ON'));
+	if ($border=='ON') $checked=" checked "; else $checked="";
+	echo '<input type="hidden" name="fcfi_border" value="OFF" />
+	<input type="checkbox" name="fcfi_border" value="ON"'.$checked.'>
+	<span>'.esc_html__( 'Show border on hover', 'first-column-featured-image' ).'</span>';
+}
 				/** 
 		 * Get the post types settings option array and print its values
 		 */
