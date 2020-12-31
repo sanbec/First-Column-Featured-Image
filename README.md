@@ -1,4 +1,4 @@
-# First Column Featured Image
+# Manage Admin Columns
 
 ## Description
 
@@ -6,7 +6,7 @@ This plugin adds a featured image column to WordPress Dashboard. It automaticall
 
 
 ## Requirements
-* WordPress 4.1, tested up to 5.5
+* WordPress 4.1, tested up to 5.6
 
 ## Installation
 
@@ -30,13 +30,13 @@ Check out the Codex for more information about [installing plugins manually](htt
 
 Using git, browse to your `/wp-content/plugins/` directory and clone this repository:
 
-`git clone git@github.com:sanbec/First-Column-Featured-Image.git`
+`git clone git@github.com:sanbec/manage-admin-columns.git`
 
 Then go to your Plugins screen and click __Activate__.
 
 ## Screenshots
 
-![Screenshot of posts in the admin](https://github.com/sanbec/First-Column-Featured-Image/blob/master/assets/screenshot-1.png)  
+![Screenshot of posts in the admin](https://github.com/sanbec/manage-admin-columns/blob/master/assets/screenshot-1.png)  
 _Screenshot of posts with featured images._
 
 ## Frequently Asked Questions
@@ -48,6 +48,9 @@ No questions. Just activate and enjoy.
 * Built by [Santiago Becerra](https://wpcombo.com/)
 
 ## Changelog
+### 1.3.0
+* new: setting to choose if the image border is shown on hover
+
 ### 1.2.0
 * new: svg image for posts with no featured image
 * improved: better code 

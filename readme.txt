@@ -1,10 +1,10 @@
-=== First Column Featured Image ===
+=== Manage Admin Columns ===
 
 
 Tags: featured image, admin columns
 Requires at least: 4.1
-Tested up to: 5.5
-Stable tag: 1.1.5
+Tested up to: 5.6
+Stable tag: 1.3.0
 License: GPL-3.0+
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
@@ -35,6 +35,8 @@ No questions. Just activate and enjoy.
 SVG image for posts with no featured image.
 
 == Changelog ==
+= 1.3.0 =
+* new: setting to choose if the image border is shown on hover
 
 = 1.2.0 =
 * new: svg image for posts with no featured image
