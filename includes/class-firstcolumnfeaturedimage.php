@@ -105,6 +105,19 @@ class FirstColumnFeaturedImage {
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
 		);
+		// register the border setting
+		register_setting(
+			'fcfi-settings', // option group
+			'fcfi_border'
+		);
+		// Add the shape setting field on the style section
+		add_settings_field(
+			'border-field', // id of the settings field
+			__('Show border on hover: ', 'first-column-featured-image' ), // title
+			array( $this, 'border_cb'), // callback function
+			'fcfi-settings', // page on which settings display
+			'settings-section-style' // section on which to show settings
+		);
 		// Add the post types section
 		add_settings_section(
 			'settings-section-cpt', // id of the section
@@ -176,19 +189,36 @@ function size_cb() {
 		 * Get the shape settings option and print it value
 		 */
 
-function shape_cb() {
-		$shape = esc_attr(get_option('fcfi_shape', 'circle'));
+		function shape_cb() {
+			$shape = esc_attr(get_option('fcfi_shape', 'circle'));
+	
+			printf( '<select name="fcfi_shape"><option ' );
+			if ($shape=='circle') echo "selected ";
+			printf( 'value="circle">%s</option>',  esc_html__( 'Circle', 'first-column-featured-image' ) );
+			echo  '<option ';
+			if ($shape=='square') echo "selected ";
+			printf( 'value="square">%s</option>',  esc_html__( 'Square', 'first-column-featured-image' ) );
+			echo '</select>';
+	
+	}
 
-		printf( '<select name="fcfi_shape"><option ' );
-		if ($shape=='circle') echo "selected ";
-		printf( 'value="circle">%s</option>',  esc_html__( 'Circle', 'first-column-featured-image' ) );
-		echo  '<option ';
-		if ($shape=='square') echo "selected ";
-		printf( 'value="square">%s</option>',  esc_html__( 'Square', 'first-column-featured-image' ) );
-		echo '</select>';
-
-}
 		/** 
+		 * Get the border settings option and print it value
+		 */
+
+		function border_cb() {
+			$borfer = esc_attr(get_option('fcfi_border', 'ON'));
+	
+			printf( '<select name="fcfi_border"><option ' );
+			if ($borfer=='ON') echo "selected ";
+			printf( 'value="ON">%s</option>',  esc_html__( 'Yes', 'first-column-featured-image' ) );
+			echo  '<option ';
+			if ($borfer=='OFF') echo "selected ";
+			printf( 'value="OFF">%s</option>',  esc_html__( 'No', 'first-column-featured-image' ) );
+			echo '</select>';
+	
+	}
+				/** 
 		 * Get the post types settings option array and print its values
 		 */
 function post_types_cb(array $args) {
@@ -384,8 +414,12 @@ function post_types_cb(array $args) {
 					width: <?=esc_attr(get_option('fcfi_size', '70px'));?>;
 					height: <?=esc_attr(get_option('fcfi_size', '70px'));?>;
 					object-fit: cover;
-					border-radius: <?php if (esc_attr(get_option('fcfi_shape', 'circle'))=='square') {echo 'unset';} else {echo '50%';}   ?>; border: 3px solid transparent;}
-				.column-featured_image img:hover { border-color: blue;}
+					<?php if (esc_attr(get_option('fcfi_shape', 'circle'))=='circle') {echo 'border-radius: 50%';}   ?>;
+					<?php if (esc_attr(get_option('fcfi_border', 'ON'))=='ON') {echo 'border: 3px solid transparent';}   ?>;
+					}
+				<?php if (esc_attr(get_option('fcfi_border', 'ON'))=='ON') {echo '.column-featured_image img:hover { border-color: blue;}';}   ?>;
+
+				
 				@media screen and (max-width: 782px) {
 					.column-featured_image, .wp-list-table .is-expanded td.column-featured_image:not(.hidden) {display: table-cell !important; width: 52px;}
 					.column-featured_image.hidden { display: none !important;} 
