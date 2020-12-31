@@ -37,11 +37,15 @@ Then go to your Plugins screen and click __Activate__.
 ## Screenshots
 
 ![Screenshot of posts in the admin](https://github.com/sanbec/manage-admin-columns/blob/master/assets/screenshot-1.png)  
-_Screenshot of posts with featured images._
+_Circle, XL, border on hover posts featured images._
+![Screenshot of posts in the admin](https://github.com/sanbec/manage-admin-columns/blob/master/assets/screenshot-2.png)  
+_Square, M, no border on hover posts featured images._
+![Screenshot of posts in the admin](https://github.com/sanbec/manage-admin-columns/blob/master/assets/screenshot-3.png)  
+_Manage admin columns settings page._
 
 ## Frequently Asked Questions
 
-No questions. Just activate and enjoy.
+It's simple! Just activate, adjust settings and enjoy.
 
 ## Credits
 
