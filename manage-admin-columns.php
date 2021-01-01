@@ -30,7 +30,7 @@ if ( ! defined( 'MANAGEADMINCOLUMNS_BASENAME' ) ) {
 }
 
 // Include classes
-function firstcolumnfeaturedimage_require() {
+function wpcmac_featuredimagecolumn_require() {
 	$files = array(
 		'class-firstcolumnfeaturedimage',
 	);
@@ -39,10 +39,10 @@ function firstcolumnfeaturedimage_require() {
 		require plugin_dir_path( __FILE__ ) . 'includes/' . $file . '.php';
 	}
 }
-firstcolumnfeaturedimage_require();
+wpcmac_featuredimagecolumn_require();
 
 // Instantiate main class
-$firstcolumnfeaturedimage = new FirstColumnFeaturedImage();
+$firstcolumnfeaturedimage = new wpcmac_FeaturedImageColumn();
 
 // Run the plugin
-$firstcolumnfeaturedimage->run();
+$firstcolumnfeaturedimage->wpcmac_run();
