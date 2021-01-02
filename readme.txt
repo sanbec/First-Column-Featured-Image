@@ -1,11 +1,12 @@
 === Manage Admin Columns ===
-
-
+Contributors: @sanbec @wpcombo
+Donate link: https://paypal.me/sanbec
 Tags: featured image, admin columns
 Requires at least: 4.1
 Tested up to: 5.6
 Stable tag: 1.3.0
-License: GPL-3.0+
+Requires PHP: 7.0
+License: GPL 3.0 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
 
@@ -25,14 +26,17 @@ This plugin adds a featured image column to WordPress Dashboard. It automaticall
 
 == Frequently Asked Questions ==
 
-No questions. Just activate and enjoy.
+It's simple! Just activate, adjust settings and enjoy.
 
 == Screenshots ==
-1. Screenshot of posts with featured images.
+1. Circle, XL, border on hover posts featured images
+1. Square, M, no border on hover posts featured images
+1. Manage admin columns settings page
 
 == Upgrade Notice ==
 
-SVG image for posts with no featured image.
+= 1.3.0 =
+Enjoy the new setting: Now, you can remove the blue border on hover
 
 == Changelog ==
 = 1.3.0 =
