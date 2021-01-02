@@ -1,0 +1,6 @@
+/.git
+/.github
+
+.distignore
+.gitignore
+manage-admin-columns.code-workspace
