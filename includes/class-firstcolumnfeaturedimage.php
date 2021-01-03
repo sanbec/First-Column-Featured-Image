@@ -41,14 +41,68 @@ class FeaturedImageColumn {
  * Add link to the fcfi-settings at the Setting menu
  */
 	public static function add_admin_link() {
+
+		function settings_page_html() {
+			// check user capabilities
+			if (!current_user_can('manage_options')) return;
+	
+			function settings_sections_boxes ($page) {
+				global $wp_settings_sections, $wp_settings_fields;
+		
+				if ( ! isset( $wp_settings_sections[$page] ) ) {
+					return;
+				}
+		
+				foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
+					echo '
+							<div class="meta-box-sortables ui-sortable">';
+					if ( $section['title'] ) {
+						echo "<h2>{$section['title']}</h2>\n";
+					}
+					echo '
+								<div class="postbox">
+									<div class="inside">';
+					if ( $section['callback'] ) {
+						call_user_func( $section['callback'], $section );
+					}
+					if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[ $page ] ) || ! isset( $wp_settings_fields[ $page ][ $section['id'] ] ) ) {
+						continue;
+					}
+					echo '<table class="form-table" role="presentation">';
+					do_settings_fields( 'fcfi-settings' , $section['id'] );
+					echo '</table>';
+					echo '
+									</div>
+								</div>
+							</div>';
+				}
+			} // end settings_sections_boxes	
+			?>
+	
+			<div class="wrap">
+				<h2><?=__('Manage Admin Columns Settings', 'manage-admin-columns' )?></h2>
+					<form method="POST" action="options.php">
+					<?php 
+					//	do_settings_sections('fcfi-settings');
+						settings_fields('fcfi-settings'); 
+						settings_sections_boxes('fcfi-settings');
+						submit_button();
+					?>
+					</form>
+			</div>
+			<?php
+		} // end settings_page_html
+
 		add_options_page(
 			__( 'Manage Admin Columns Settings', 'manage-admin-columns' ), // title of the settings page
 			__('Featured Image Column', 'manage-admin-columns' ),// title of the submenu
 			'manage_options', // capability of the user to see this page
 			'fcfi-settings', // slug of the settings page
-			array( __CLASS__, 'settings_page_html') // callback function when rendering the page
+			'wpcombo\fcfi\settings_page_html' // callback function when rendering the page
 		);
-	}
+	} // end add_admin_link
+
+
 /*
  * Create the fcfi-settings page: /wp-admin/options-general.php?page=fcfi-settings
  */
@@ -61,13 +115,12 @@ class FeaturedImageColumn {
 			'wpcombo\fcfi\style_cb', // callback function to be called when opening section
 			'fcfi-settings' // page on which to display the section
 		);
-		
+		// Callback to echo intro text in the style section
 		function style_cb( $args ) {
 		// echo section intro text here
 			echo __('Choose the size and shape of the featured image at the list table', 'manage-admin-columns');
 		}
-		
-		
+
 		// register the size setting
 		register_setting(
 			'fcfi-settings', // option group
@@ -82,8 +135,7 @@ class FeaturedImageColumn {
 			'settings-section-style' // section on which to show settings
 		);
 
-		// Get the size settings option and print it value
-
+		// Callback to get the size settings option and print it value
 		function size_cb() {
 			$size = esc_attr(get_option('fcfi_size', '70px'));
 		?>
@@ -111,7 +163,7 @@ class FeaturedImageColumn {
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
 		);
-		// Get the shape settings option and print it value
+		// Callback to get the shape settings option and print it value
 		function shape_cb() {
 			$shape = esc_attr(get_option('fcfi_shape', 'circle'));
 	
@@ -136,7 +188,7 @@ class FeaturedImageColumn {
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
 		);
-		// Get the border settings option and print it value
+		// Callback to get the border settings option and print it value
 		function border_cb() {
 			$border = esc_attr(get_option('fcfi_border', 'ON'));
 			if ($border=='ON') $checked=" checked "; else $checked="";
@@ -151,7 +203,8 @@ class FeaturedImageColumn {
 			'wpcombo\fcfi\post_types_section_cb', // callback function to be called when opening section, currently empty
 			'fcfi-settings' // page on which to display the section
 		);
-
+		
+		// Callback to echo intro text in the post types section
 		function post_types_section_cb( $args ) {
 		// echo section intro text here
 			echo __('Select the post types where you want the featured image column to be displayed', 'manage-admin-columns');
@@ -187,9 +240,7 @@ class FeaturedImageColumn {
 				$args
 			);
 		}
-		/** 
-		 * Get the post types settings option array and print its values
-		 */
+		// Callback to get the post types settings option array and print its values
 		function post_types_cb(array $args) {
 			$post_type=$args['post_type'];
 			$pt_selected = esc_attr(FeaturedImageColumn::$post_type_options[$post_type]);
@@ -202,56 +253,6 @@ class FeaturedImageColumn {
 
 	} // end public static function admin_settings_init()
 
-	private static function settings_sections_boxes ($page) {
-		global $wp_settings_sections, $wp_settings_fields;
-
-		if ( ! isset( $wp_settings_sections[$page] ) ) {
-			return;
-		}
-
-		foreach ( (array) $wp_settings_sections[ $page ] as $section ) {
-			echo '
-					<div class="meta-box-sortables ui-sortable">';
-			if ( $section['title'] ) {
-				echo "<h2>{$section['title']}</h2>\n";
-			}
-			echo '
-						<div class="postbox">
-							<div class="inside">';
-			if ( $section['callback'] ) {
-				call_user_func( $section['callback'], $section );
-			}
-			if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[ $page ] ) || ! isset( $wp_settings_fields[ $page ][ $section['id'] ] ) ) {
-				continue;
-			}
-			echo '<table class="form-table" role="presentation">';
-			do_settings_fields( 'fcfi-settings' , $section['id'] );
-			echo '</table>';
-			echo '
-							</div>
-						</div>
-					</div>';
-		}
-	}
-
-	public static function settings_page_html() {
-		// check user capabilities
-		if (!current_user_can('manage_options')) return;
-		?>
-
-		<div class="wrap">
-			<h2><?=__('Manage Admin Columns Settings', 'manage-admin-columns' )?></h2>
-				<form method="POST" action="options.php">
-				<?php 
-					settings_fields('fcfi-settings'); 
-		//			do_settings_sections('fcfi-settings');
-					self::settings_sections_boxes('fcfi-settings');
-					submit_button();
-				?>
-				</form>
-		</div>
-		<?php
-	}
 	/* END Admin dashboard */
 
 	/*
