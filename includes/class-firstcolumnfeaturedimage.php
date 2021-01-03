@@ -15,21 +15,21 @@ class FeaturedImageColumn {
 /*
  * Holds the values to be used in the fields callbacks
  */
-	private $post_type_options;  // assigned at add_post_type_column()
-	private $post_type_defaults; // populated at admin_settings_init()
+	public static $post_type_options;  // assigned at add_post_type_column()
+	private static $post_type_defaults; // populated at admin_settings_init()
 
-	public function run() {
+	public static function run() {
 
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
-		add_action( 'admin_init', array( $this, 'admin_settings_init'));
-		add_action( 'admin_init', array( $this, 'add_post_type_column' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'featured_image_column_width' ) );
-		add_action( 'admin_menu', array( $this, 'add_admin_link') );
+		add_action( 'plugins_loaded', array( __CLASS__, 'load_textdomain' ) );
+		add_action( 'admin_init', array( __CLASS__, 'admin_settings_init'));
+		add_action( 'admin_init', array( __CLASS__, 'add_post_type_column' ) );
+		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'featured_image_column_width' ) );
+		add_action( 'admin_menu', array( __CLASS__, 'add_admin_link') );
 	} //END run()
 /**
  * Set up text domain for translations
  */
-	public function load_textdomain() {
+	public static function load_textdomain() {
 		load_plugin_textdomain( 'manage-admin-columns', false, plugin_dir_path( __FILE__ ) . '/languages/' );
 	}
 
@@ -40,20 +40,20 @@ class FeaturedImageColumn {
 /*
  * Add link to the fcfi-settings at the Setting menu
  */
-	public function add_admin_link() {
+	public static function add_admin_link() {
 		add_options_page(
 			__( 'Manage Admin Columns Settings', 'manage-admin-columns' ), // title of the settings page
 			__('Featured Image Column', 'manage-admin-columns' ),// title of the submenu
 			'manage_options', // capability of the user to see this page
 			'fcfi-settings', // slug of the settings page
-			array( $this, 'settings_page_html') // callback function when rendering the page
+			array( __CLASS__, 'settings_page_html') // callback function when rendering the page
 		);
 	}
 /*
  * Create the fcfi-settings page: /wp-admin/options-general.php?page=fcfi-settings
  */
 
-	public function admin_settings_init() {
+	public static function admin_settings_init() {
 		// Add the style settings section
 		add_settings_section(
 			'settings-section-style', // id of the section
@@ -176,32 +176,33 @@ class FeaturedImageColumn {
 		// loop the post type
 		foreach ( $post_types as $post_type ) {
 			if ( ! post_type_supports( $post_type, 'thumbnail' ) ) continue;
-			$this->post_type_defaults [$post_type]="ON";
+			self::$post_type_defaults [$post_type]="ON";
 			$args = ['post_type'=>$post_type];
 			add_settings_field(
 				'pt-field-'.$post_type, // id of the settings field
 				'', // title
-				array( $this, 'post_types_cb'), // callback function
+				'wpcombo\fcfi\post_types_cb', // callback function
 				'fcfi-settings', // page on which settings display
 				'settings-section-cpt', // section on which to show settings
 				$args
 			);
 		}
-
-	}
 		/** 
 		 * Get the post types settings option array and print its values
 		 */
-	public function post_types_cb(array $args) {
-		$post_type=$args['post_type'];
-		$pt_selected = esc_attr($this->post_type_options[$post_type]);
-		if ($pt_selected=="ON") $checked=" checked "; else $checked="";
-		echo '<input type="hidden" name="fcfi_post_types['.$post_type.']" value="OFF" />
-				<input type="checkbox" name="fcfi_post_types['.$post_type.']" value="ON"'.$checked.'>
-				<span style="font-weight: bold;">'.get_post_type_object($post_type)->label.'</span> (<code>'.$post_type.'</code>)';
-	}
+		function post_types_cb(array $args) {
+			$post_type=$args['post_type'];
+			$pt_selected = esc_attr(FeaturedImageColumn::$post_type_options[$post_type]);
+			if ($pt_selected=="ON") $checked=" checked "; else $checked="";
+			echo '<input type="hidden" name="fcfi_post_types['.$post_type.']" value="OFF" />
+					<input type="checkbox" name="fcfi_post_types['.$post_type.']" value="ON"'.$checked.'>
+					<span style="font-weight: bold;">'.get_post_type_object($post_type)->label.'</span> (<code>'.$post_type.'</code>)';
+		}
+	
 
-	private function settings_sections_boxes ($page) {
+	} // end public static function admin_settings_init()
+
+	private static function settings_sections_boxes ($page) {
 		global $wp_settings_sections, $wp_settings_fields;
 
 		if ( ! isset( $wp_settings_sections[$page] ) ) {
@@ -233,7 +234,7 @@ class FeaturedImageColumn {
 		}
 	}
 
-	public function settings_page_html() {
+	public static function settings_page_html() {
 		// check user capabilities
 		if (!current_user_can('manage_options')) return;
 		?>
@@ -244,7 +245,7 @@ class FeaturedImageColumn {
 				<?php 
 					settings_fields('fcfi-settings'); 
 		//			do_settings_sections('fcfi-settings');
-					$this->settings_sections_boxes('fcfi-settings');
+					self::settings_sections_boxes('fcfi-settings');
 					submit_button();
 				?>
 				</form>
@@ -256,14 +257,14 @@ class FeaturedImageColumn {
 	/*
 	* Add the featured_image_column at the lists of selected post types.
 	*/
-	public function add_post_type_column() {
-		$this->post_type_options = get_option( 'fcfi_post_types', $this->post_type_defaults);
-		foreach ( $this->post_type_options as $post_type=>$set) {
+	public static function add_post_type_column() {
+		self::$post_type_options = get_option( 'fcfi_post_types', self::$post_type_defaults);
+		foreach ( self::$post_type_options as $post_type=>$set) {
 			if ($set=="ON") {
-				add_filter( "manage_{$post_type}_posts_columns", array( $this, 'add_featured_image_column' ) );
-				add_action( "manage_{$post_type}_posts_custom_column", array( $this, 'manage_image_column' ), 10, 2 );
-				add_filter( "manage_edit-{$post_type}_sortable_columns", array( $this, 'make_sortable' ) );
-				add_action( 'pre_get_posts', array( $this, 'orderby' ) );
+				add_filter( "manage_{$post_type}_posts_columns", array( __CLASS__, 'add_featured_image_column' ) );
+				add_action( "manage_{$post_type}_posts_custom_column", array( __CLASS__, 'manage_image_column' ), 10, 2 );
+				add_filter( "manage_edit-{$post_type}_sortable_columns", array(__CLASS__, 'make_sortable' ) );
+				add_action( 'pre_get_posts', array( __CLASS__, 'orderby' ) );
 			}
 		}
 	}
@@ -286,7 +287,7 @@ class FeaturedImageColumn {
 	 * @param $columns
 	 * @return mixed
 	 */
-	public function make_sortable( $columns ) {
+	public static function make_sortable( $columns ) {
 		$columns['featured_image'] = 'featured_image';
 		return $columns;
 	}
@@ -295,7 +296,7 @@ class FeaturedImageColumn {
 	 * Set a custom query to handle sorting by featured image
 	 * @param $query WP_Query
 	 */
-	public function orderby( $query ) {
+	public static function orderby( $query ) {
 		if ( ! is_admin() ) {
 			return;
 		}
@@ -326,7 +327,7 @@ class FeaturedImageColumn {
 	 * @param  $column string $column  column id is featured_image
 	 * @param  $post_id int id of each post
 	 */
-	public function manage_image_column( $column, $post_id ) {
+	public static function manage_image_column( $column, $post_id ) {
 
 		if ( 'featured_image' !== $column ) {
 			return;
@@ -344,7 +345,7 @@ class FeaturedImageColumn {
 			'alt'      => the_title_attribute( 'echo=0' ),
 		);
 
-		echo wp_kses_post( $this->admin_column_image( $args ) );
+		echo wp_kses_post( self::admin_column_image( $args ) );
 	}
 
 	/**
@@ -353,7 +354,7 @@ class FeaturedImageColumn {
 	 *
 	 * @return string
 	 */
-	protected function admin_column_image( $args ) {
+	protected static function admin_column_image( $args ) {
 		$image_id = $args['image_id'];
 		$preview  = wp_get_attachment_image_src( $image_id, 'thumbnail' );
 		$preview  = apply_filters( 'fcfi_thumbnail', $preview, $image_id );
@@ -366,7 +367,7 @@ class FeaturedImageColumn {
 	/**
 	 * Creates an inline stylesheet to set featured image column width
 	 */
-	public function featured_image_column_width() {
+	public static function featured_image_column_width() {
 		$screen = get_current_screen();
 		if ( ! post_type_supports( $screen->post_type, 'thumbnail' ) ) {
 			return;
@@ -394,4 +395,5 @@ class FeaturedImageColumn {
 			</style> <?php
 		}
 	}
-}
+} // end class FeaturedImageColumn
+FeaturedImageColumn::run();

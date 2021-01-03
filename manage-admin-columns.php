@@ -19,8 +19,6 @@
  * License:           GPL-3.0+
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.txt
  */
-namespace wpcombo\mac;
-
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -33,10 +31,3 @@ if ( ! defined( 'MANAGEADMINCOLUMNS_BASENAME' ) ) {
 
 // Include class
 require plugin_dir_path( __FILE__ ) . 'includes/class-firstcolumnfeaturedimage.php';
-
-use wpcombo\fcfi\FeaturedImageColumn as FeaturedImageColumn;
-// Instantiate main class
-$firstcolumnfeaturedimage = new FeaturedImageColumn();
-
-// Run the plugin
-$firstcolumnfeaturedimage->run();
