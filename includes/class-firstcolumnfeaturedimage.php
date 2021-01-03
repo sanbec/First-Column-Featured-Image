@@ -275,12 +275,13 @@ class FeaturedImageColumn {
 	 *
 	 * @return array
 	 */
-	public function add_featured_image_column( $columns ) {
-
-		$first_column = array('featured_image' => __( 'Image', 'manage-admin-columns' ));
-
-		return array_merge( $first_column, $columns );
-
+	public static function add_featured_image_column( $columns ) {
+		reset($columns);
+		$select_column = array(key($columns) => current($columns));
+		$featim_column = array('featured_image' => __( 'Image', 'manage-admin-columns' ));
+		$columns = array_merge($select_column,$featim_column,$columns);
+		print_r($columns);
+		return $columns;
 	}
 
 	/**
