@@ -17,30 +17,18 @@ class wpcmac_FeaturedImageColumn {
 	private $post_type_options;  // assigned at add_post_type_column()
 	private $post_type_defaults; // populated at admin_settings_init()
 
-	public function wpcmac_run() {
+	public function run() {
 
-		add_action( 'plugins_loaded', array( $this, 'wpcmac_load_textdomain' ) );
-		add_action( 'admin_init', array( $this, 'wpcmac_admin_settings_init'));
-		add_action( 'admin_init', array( $this, 'wpcmac_add_post_type_column' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'wpcmac_featured_image_column_width' ) );
-		add_action( 'admin_menu', array( $this, 'wpcmac_add_admin_link') );
-/*
- * Removing featured image column from ajde_events
- * The ajde_events are events from eventON plugins.
- * They have their own featured image in the title column
- */
-		add_filter( 'fcfi_post_types', 'wpcmac_remove_ajde_events' );
-		function wpcmac_remove_ajde_events( $post_types ) {
-			unset( $post_types['ajde_events'] );
-			return $post_types;
-		}
+		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
+		add_action( 'admin_init', array( $this, 'admin_settings_init'));
+		add_action( 'admin_init', array( $this, 'add_post_type_column' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'featured_image_column_width' ) );
+		add_action( 'admin_menu', array( $this, 'add_admin_link') );
 	} //END run()
 /**
  * Set up text domain for translations
- *
- * @since 1.0
  */
-	public function wpcmac_load_textdomain() {
+	public function load_textdomain() {
 		load_plugin_textdomain( 'manage-admin-columns', false, plugin_dir_path( __FILE__ ) . '/languages/' );
 	}
 
@@ -51,29 +39,29 @@ class wpcmac_FeaturedImageColumn {
 /*
  * Add link to the fcfi-settings at the Setting menu
  */
-	public function wpcmac_add_admin_link() {
+	public function add_admin_link() {
 		add_options_page(
-			__( 'Feat. Image Col. Settings', 'manage-admin-columns' ), // title of the settings page
+			__( 'Manage Admin Columns Settings', 'manage-admin-columns' ), // title of the settings page
 			__('Featured Image Column', 'manage-admin-columns' ),// title of the submenu
 			'manage_options', // capability of the user to see this page
 			'fcfi-settings', // slug of the settings page
-			array( $this, 'wpcmac_settings_page_html') // callback function when rendering the page
+			array( $this, 'settings_page_html') // callback function when rendering the page
 		);
 	}
 /*
  * Create the fcfi-settings page: /wp-admin/options-general.php?page=fcfi-settings
  */
 
-	public function wpcmac_admin_settings_init() {
+	public function admin_settings_init() {
 		// Add the style settings section
 		add_settings_section(
 			'settings-section-style', // id of the section
 			__('Style Settings', 'manage-admin-columns' ),// title to be displayed
-			'wpcmac_style_cb', // callback function to be called when opening section, currently empty
+			'style_cb', // callback function to be called when opening section
 			'fcfi-settings' // page on which to display the section
 		);
 		
-		function wpcmac_style_cb( $args ) {
+		public function style_cb( $args ) {
 		// echo section intro text here
 			echo __('Choose the size and shape of the featured image at the list table', 'manage-admin-columns');
 		}
@@ -88,7 +76,7 @@ class wpcmac_FeaturedImageColumn {
 		add_settings_field(
 			'size-field', // id of the settings field
 			esc_html__('Featured Image Size:', 'manage-admin-columns' ), // title
-			array( $this, 'wpcmac_size_cb'), // callback function
+			array( $this, 'size_cb'), // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
 		);
@@ -101,7 +89,7 @@ class wpcmac_FeaturedImageColumn {
 		add_settings_field(
 			'shape-field', // id of the settings field
 			__('Shape: ', 'manage-admin-columns' ), // title
-			array( $this, 'wpcmac_shape_cb'), // callback function
+			array( $this, 'shape_cb'), // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
 		);
@@ -114,7 +102,7 @@ class wpcmac_FeaturedImageColumn {
 		add_settings_field(
 			'border-field', // id of the settings field
 			__('Border ', 'manage-admin-columns' ), // title
-			array( $this, 'wpcmac_border_cb'), // callback function
+			array( $this, 'border_cb'), // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
 		);
@@ -122,11 +110,11 @@ class wpcmac_FeaturedImageColumn {
 		add_settings_section(
 			'settings-section-cpt', // id of the section
 			__('Post Types', 'manage-admin-columns' ), // title to be displayed
-			'wpcmac_post_types_section_cb', // callback function to be called when opening section, currently empty
+			'post_types_section_cb', // callback function to be called when opening section, currently empty
 			'fcfi-settings' // page on which to display the section
 		);
 
-		function wpcmac_post_types_section_cb( $args ) {
+		public function post_types_section_cb( $args ) {
 		// echo section intro text here
 			echo __('Select the post types where you want the featured image column to be displayed', 'manage-admin-columns');
 		}
@@ -155,7 +143,7 @@ class wpcmac_FeaturedImageColumn {
 			add_settings_field(
 				'pt-field-'.$post_type, // id of the settings field
 				'', // title
-				array( $this, 'wpcmac_post_types_cb'), // callback function
+				array( $this, 'post_types_cb'), // callback function
 				'fcfi-settings', // page on which settings display
 				'settings-section-cpt', // section on which to show settings
 				$args
@@ -169,7 +157,7 @@ class wpcmac_FeaturedImageColumn {
 		 */
 
 
-	public function wpcmac_size_cb() {
+	public function size_cb() {
 		$size = esc_attr(get_option('fcfi_size', '70px'));
 	?>
 
@@ -188,7 +176,7 @@ class wpcmac_FeaturedImageColumn {
 		 * Get the shape settings option and print it value
 		 */
 
-	public function wpcmac_shape_cb() {
+	public function shape_cb() {
 		$shape = esc_attr(get_option('fcfi_shape', 'circle'));
 
 		printf( '<select name="fcfi_shape"><option ' );
@@ -204,7 +192,7 @@ class wpcmac_FeaturedImageColumn {
 		 * Get the border settings option and print it value
 		 */
 
-	public function wpcmac_border_cb() {
+	public function border_cb() {
 		$border = esc_attr(get_option('fcfi_border', 'ON'));
 		if ($border=='ON') $checked=" checked "; else $checked="";
 		echo '<input type="hidden" name="fcfi_border" value="OFF" />
@@ -214,7 +202,7 @@ class wpcmac_FeaturedImageColumn {
 				/** 
 		 * Get the post types settings option array and print its values
 		 */
-	public function wpcmac_post_types_cb(array $args) {
+	public function post_types_cb(array $args) {
 		$post_type=$args['post_type'];
 		$pt_selected = esc_attr($this->post_type_options[$post_type]);
 		if ($pt_selected=="ON") $checked=" checked "; else $checked="";
@@ -255,7 +243,7 @@ class wpcmac_FeaturedImageColumn {
 		}
 	}
 
-	public function wpcmac_settings_page_html() {
+	public function settings_page_html() {
 		// check user capabilities
 		if (!current_user_can('manage_options')) return;
 		?>
@@ -278,14 +266,14 @@ class wpcmac_FeaturedImageColumn {
 	/*
 	* Add the featured_image_column at the lists of selected post types.
 	*/
-	public function wpcmac_add_post_type_column() {
+	public function add_post_type_column() {
 		$this->post_type_options = get_option( 'fcfi_post_types', $this->post_type_defaults);
 		foreach ( $this->post_type_options as $post_type=>$set) {
 			if ($set=="ON") {
-				add_filter( "manage_{$post_type}_posts_columns", array( $this, 'wpcmac_add_featured_image_column' ) );
-				add_action( "manage_{$post_type}_posts_custom_column", array( $this, 'wpcmac_manage_image_column' ), 10, 2 );
-				add_filter( "manage_edit-{$post_type}_sortable_columns", array( $this, 'wpcmac_make_sortable' ) );
-				add_action( 'pre_get_posts', array( $this, 'wpcmac_orderby' ) );
+				add_filter( "manage_{$post_type}_posts_columns", array( $this, 'add_featured_image_column' ) );
+				add_action( "manage_{$post_type}_posts_custom_column", array( $this, 'manage_image_column' ), 10, 2 );
+				add_filter( "manage_edit-{$post_type}_sortable_columns", array( $this, 'make_sortable' ) );
+				add_action( 'pre_get_posts', array( $this, 'orderby' ) );
 			}
 		}
 	}
@@ -296,7 +284,7 @@ class wpcmac_FeaturedImageColumn {
 	 * @return array
 	 * @since 1.0
 	 */
-	public function wpcmac_add_featured_image_column( $columns ) {
+	public function add_featured_image_column( $columns ) {
 
 		$first_column = array('featured_image' => __( 'Image', 'manage-admin-columns' ));
 
@@ -310,7 +298,7 @@ class wpcmac_FeaturedImageColumn {
 	 * @return mixed
 	 * @since 1.0
 	 */
-	public function wpcmac_make_sortable( $columns ) {
+	public function make_sortable( $columns ) {
 		$columns['featured_image'] = 'featured_image';
 		return $columns;
 	}
@@ -320,7 +308,7 @@ class wpcmac_FeaturedImageColumn {
 	 * @param $query WP_Query
 	 * @since 1.0
 	 */
-	public function wpcmac_orderby( $query ) {
+	public function orderby( $query ) {
 		if ( ! is_admin() ) {
 			return;
 		}
@@ -353,7 +341,7 @@ class wpcmac_FeaturedImageColumn {
 	 *
 	 * @since 1.0
 	 */
-	public function wpcmac_manage_image_column( $column, $post_id ) {
+	public function manage_image_column( $column, $post_id ) {
 
 		if ( 'featured_image' !== $column ) {
 			return;
@@ -371,7 +359,7 @@ class wpcmac_FeaturedImageColumn {
 			'alt'      => the_title_attribute( 'echo=0' ),
 		);
 
-		echo wp_kses_post( $this->wpcmac_admin_column_image( $args ) );
+		echo wp_kses_post( $this->admin_column_image( $args ) );
 	}
 
 	/**
@@ -381,7 +369,7 @@ class wpcmac_FeaturedImageColumn {
 	 * @return string
 	 * @since 1.0
 	 */
-	protected function wpcmac_admin_column_image( $args ) {
+	protected function admin_column_image( $args ) {
 		$image_id = $args['image_id'];
 		$preview  = wp_get_attachment_image_src( $image_id, 'thumbnail' );
 		$preview  = apply_filters( 'fcfi_thumbnail', $preview, $image_id );
@@ -394,7 +382,7 @@ class wpcmac_FeaturedImageColumn {
 	/**
 	 * Creates an inline stylesheet to set featured image column width
 	 */
-	public function wpcmac_featured_image_column_width() {
+	public function featured_image_column_width() {
 		$screen = get_current_screen();
 		if ( ! post_type_supports( $screen->post_type, 'thumbnail' ) ) {
 			return;
