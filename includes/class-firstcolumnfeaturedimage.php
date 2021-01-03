@@ -25,7 +25,6 @@ class FeaturedImageColumn {
 		add_action( 'admin_init', array( __CLASS__, 'add_post_type_column' ) );
 		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'featured_image_column_width' ) );
 		add_action( 'admin_menu', array( __CLASS__, 'add_admin_link') );
-		add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_scripts_lightbox') );
 	} //END run()
 /**
  * Set up text domain for translations
@@ -33,14 +32,6 @@ class FeaturedImageColumn {
 	public static function load_textdomain() {
 		load_plugin_textdomain( 'manage-admin-columns', false, plugin_dir_path( __FILE__ ) . '/languages/' );
 	}
-
-	public static function enqueue_scripts_lightbox () {
-		wp_enqueue_script('lightbox-js', '//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js', array('jquery'));
-		wp_enqueue_style('lightbox-css', '//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css');
-		wp_enqueue_script('lightbox-init', plugin_dir_url( __FILE__ ) . 'assets/lightbox-init.js', array('jquery'));
-	}
-	
-	
 
 /*
  * BEGIN Admin dashboard
@@ -117,6 +108,7 @@ class FeaturedImageColumn {
  */
 
 	public static function admin_settings_init() {
+		add_thickbox();
 
 		// Add the style settings section
 		add_settings_section(
@@ -379,7 +371,7 @@ class FeaturedImageColumn {
 		if ( ! $full ) {
 			return '';
 		}
-		return sprintf( '<a href="%1$s"><img src="%2$s" alt="%3$s" /></a>', $full[0], $thumb[0], $args['alt'] );
+		return sprintf( '<a href="%1$s" class="thickbox"><img src="%2$s" alt="%3$s" /></a>', $full[0], $thumb[0], $args['alt'] );
 	}
 
 	/**
