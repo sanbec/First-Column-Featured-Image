@@ -1,11 +1,12 @@
-# Copyright (C) 2019 First Column Featured Image
-# This file is distributed under the same license as the First Column Featured Image package.
+# Copyright (C) 2021 Santiago Becerra
+# This file is distributed under the same license as the Manage Admin Columns plugin.
 msgid ""
 msgstr ""
 "Project-Id-Version: Manage Admin Columns 1.3.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/manage-admin-columns\n"
-"POT-Creation-Date: 2020-12-31T02:52:27+01:00\n"
-"PO-Revision-Date: 2020-12-31 02:55+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/manage-admin-"
+"columns\n"
+"POT-Creation-Date: 2021-01-03T17:11:43+01:00\n"
+"PO-Revision-Date: 2021-01-03 17:18+0100\n"
 "Last-Translator: Santiago Becerra <santi@wpcombo.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -42,39 +43,52 @@ msgstr "Santiago Becerra"
 msgid "https://wpcombo.com"
 msgstr "https://wpcombo.com"
 
-#: includes/class-firstcolumnfeaturedimage.php:56
-msgid "Feat. Image Col. Settings"
-msgstr "Ajustes de Image Column"
+#: includes/class-firstcolumnfeaturedimage.php:83
+#: includes/class-firstcolumnfeaturedimage.php:97
+msgid "Manage Admin Columns Settings"
+msgstr "Ajustes de Manage Admin Columns"
 
-#: includes/class-firstcolumnfeaturedimage.php:57
+#: includes/class-firstcolumnfeaturedimage.php:98
 msgid "Featured Image Column"
 msgstr "Columna de imagen destacada"
 
-#: includes/class-firstcolumnfeaturedimage.php:71
+#: includes/class-firstcolumnfeaturedimage.php:114
 msgid "Style Settings"
 msgstr "Ajustes de estilo"
 
-#: includes/class-firstcolumnfeaturedimage.php:78
+#: includes/class-firstcolumnfeaturedimage.php:121
 msgid "Choose the size and shape of the featured image at the list table"
 msgstr "Elige el tamaño y la forma de la imagen destacada en la tabla de lista"
 
-#: includes/class-firstcolumnfeaturedimage.php:90
+#: includes/class-firstcolumnfeaturedimage.php:132
 msgid "Featured Image Size:"
 msgstr "Tamaño de imagen destacada:"
 
-#: includes/class-firstcolumnfeaturedimage.php:103
+#: includes/class-firstcolumnfeaturedimage.php:161
 msgid "Shape: "
 msgstr "Forma: "
 
-#: includes/class-firstcolumnfeaturedimage.php:116
+#: includes/class-firstcolumnfeaturedimage.php:172
+msgid "Circle"
+msgstr "Círculo"
+
+#: includes/class-firstcolumnfeaturedimage.php:175
+msgid "Square"
+msgstr "Cuadrado"
+
+#: includes/class-firstcolumnfeaturedimage.php:186
 msgid "Border "
 msgstr "Borde "
 
-#: includes/class-firstcolumnfeaturedimage.php:124
+#: includes/class-firstcolumnfeaturedimage.php:197
+msgid "Show border on hover"
+msgstr "Mostrar borde al pasar el cursor"
+
+#: includes/class-firstcolumnfeaturedimage.php:202
 msgid "Post Types"
 msgstr "Tipos de contenido"
 
-#: includes/class-firstcolumnfeaturedimage.php:131
+#: includes/class-firstcolumnfeaturedimage.php:210
 msgid ""
 "Select the post types where you want the featured image column to be "
 "displayed"
@@ -82,30 +96,17 @@ msgstr ""
 "Seleccione los tipos de contenido en los que quieres que se muestre la "
 "columna de imagen destacada"
 
-#: includes/class-firstcolumnfeaturedimage.php:197
-msgid "Circle"
-msgstr "Círculo"
-
-#: includes/class-firstcolumnfeaturedimage.php:200
-msgid "Square"
-msgstr "Cuadrado"
-
-#: includes/class-firstcolumnfeaturedimage.php:213
-msgid "Show border on hover"
-msgstr "Mostrar borde al pasar el cursor"
-
-#: includes/class-firstcolumnfeaturedimage.php:265
-msgid "Manage Admin Columns Settings"
-msgstr "Ajustes de Manage Admin Columns"
-
-#: includes/class-firstcolumnfeaturedimage.php:302
+#: includes/class-firstcolumnfeaturedimage.php:280
 msgid "Image"
 msgstr "Imagen"
 
-#: includes/class-firstcolumnfeaturedimage.php:364
-#: includes/class-firstcolumnfeaturedimage.php:365
+#: includes/class-firstcolumnfeaturedimage.php:338
+#: includes/class-firstcolumnfeaturedimage.php:339
 msgid "No image"
 msgstr "Sin imagen"
+
+#~ msgid "Feat. Image Col. Settings"
+#~ msgstr "Ajustes de Image Column"
 
 #~ msgid "First Column Featured Image"
 #~ msgstr "First Column Featured Image"
