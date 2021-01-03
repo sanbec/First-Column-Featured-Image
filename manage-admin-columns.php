@@ -19,6 +19,8 @@
  * License:           GPL-3.0+
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.txt
  */
+namespace wpcombo\mac;
+
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -29,20 +31,12 @@ if ( ! defined( 'MANAGEADMINCOLUMNS_BASENAME' ) ) {
 	define( 'MANAGEADMINCOLUMNS_BASENAME', plugin_basename( __FILE__ ) );
 }
 
-// Include classes
-function wpcmac_featuredimagecolumn_require() {
-	$files = array(
-		'class-firstcolumnfeaturedimage',
-	);
+// Include class
+require plugin_dir_path( __FILE__ ) . 'includes/class-firstcolumnfeaturedimage.php';
 
-	foreach ( $files as $file ) {
-		require plugin_dir_path( __FILE__ ) . 'includes/' . $file . '.php';
-	}
-}
-wpcmac_featuredimagecolumn_require();
-
+use wpcombo\fcfi\FeaturedImageColumn as FeaturedImageColumn;
 // Instantiate main class
-$firstcolumnfeaturedimage = new wpcmac_FeaturedImageColumn();
+$firstcolumnfeaturedimage = new FeaturedImageColumn();
 
 // Run the plugin
-$firstcolumnfeaturedimage->wpcmac_run();
+$firstcolumnfeaturedimage->run();

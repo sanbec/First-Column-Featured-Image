@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Main plugin class
  *
@@ -10,7 +9,9 @@
  * @copyright 2019 WPCombo OÜ
  */
 
-class wpcmac_FeaturedImageColumn {
+namespace wpcombo\fcfi;
+
+class FeaturedImageColumn {
 /*
  * Holds the values to be used in the fields callbacks
  */
@@ -57,7 +58,7 @@ class wpcmac_FeaturedImageColumn {
 		add_settings_section(
 			'settings-section-style', // id of the section
 			__('Style Settings', 'manage-admin-columns' ),// title to be displayed
-			'style_cb', // callback function to be called when opening section
+			'wpcombo\fcfi\style_cb', // callback function to be called when opening section
 			'fcfi-settings' // page on which to display the section
 		);
 		
@@ -76,10 +77,27 @@ class wpcmac_FeaturedImageColumn {
 		add_settings_field(
 			'size-field', // id of the settings field
 			esc_html__('Featured Image Size:', 'manage-admin-columns' ), // title
-			array( $this, 'size_cb'), // callback function
+			'wpcombo\fcfi\size_cb', // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
 		);
+
+		// Get the size settings option and print it value
+
+		function size_cb() {
+			$size = esc_attr(get_option('fcfi_size', '70px'));
+		?>
+			<select name="fcfi_size">
+			<option <?php if ($size=='70px') echo "selected "; ?>value="70px">XL</option>
+			<option <?php if ($size=='60px') echo "selected "; ?>value="60px">L</option>
+			<option <?php if ($size=='50px') echo "selected "; ?>value="50px">M</option>
+			<option <?php if ($size=='40px') echo "selected "; ?>value="40px">S</option>
+			<option <?php if ($size=='32px') echo "selected "; ?>value="32px">XS</option>
+			</select>
+		<?php
+		} // size_cb
+	
+
 		// register the shape setting
 		register_setting(
 			'fcfi-settings', // option group
@@ -89,10 +107,22 @@ class wpcmac_FeaturedImageColumn {
 		add_settings_field(
 			'shape-field', // id of the settings field
 			__('Shape: ', 'manage-admin-columns' ), // title
-			array( $this, 'shape_cb'), // callback function
+			'wpcombo\fcfi\shape_cb', // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
 		);
+		// Get the shape settings option and print it value
+		function shape_cb() {
+			$shape = esc_attr(get_option('fcfi_shape', 'circle'));
+	
+			printf( '<select name="fcfi_shape"><option ' );
+			if ($shape=='circle') echo "selected ";
+			printf( 'value="circle">%s</option>',  esc_html__( 'Circle', 'manage-admin-columns' ) );
+			echo  '<option ';
+			if ($shape=='square') echo "selected ";
+			printf( 'value="square">%s</option>',  esc_html__( 'Square', 'manage-admin-columns' ) );
+			echo '</select>';
+		}
 		// register the border setting
 		register_setting(
 			'fcfi-settings', // option group
@@ -102,15 +132,23 @@ class wpcmac_FeaturedImageColumn {
 		add_settings_field(
 			'border-field', // id of the settings field
 			__('Border ', 'manage-admin-columns' ), // title
-			array( $this, 'border_cb'), // callback function
+			'wpcombo\fcfi\border_cb', // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
 		);
+		// Get the border settings option and print it value
+		function border_cb() {
+			$border = esc_attr(get_option('fcfi_border', 'ON'));
+			if ($border=='ON') $checked=" checked "; else $checked="";
+			echo '<input type="hidden" name="fcfi_border" value="OFF" />
+			<input type="checkbox" name="fcfi_border" value="ON"'.$checked.'>
+			<span>'.esc_html__( 'Show border on hover', 'manage-admin-columns' ).'</span>';
+		}
 		// Add the post types section
 		add_settings_section(
 			'settings-section-cpt', // id of the section
 			__('Post Types', 'manage-admin-columns' ), // title to be displayed
-			'post_types_section_cb', // callback function to be called when opening section, currently empty
+			'wpcombo\fcfi\post_types_section_cb', // callback function to be called when opening section, currently empty
 			'fcfi-settings' // page on which to display the section
 		);
 
@@ -151,55 +189,7 @@ class wpcmac_FeaturedImageColumn {
 		}
 
 	}
-
 		/** 
-		 * Get the size settings option and print it value
-		 */
-
-
-	public function size_cb() {
-		$size = esc_attr(get_option('fcfi_size', '70px'));
-	?>
-
-		<select name="fcfi_size">
-		<option <?php if ($size=='70px') echo "selected "; ?>value="70px">XL</option>
-		<option <?php if ($size=='60px') echo "selected "; ?>value="60px">L</option>
-		<option <?php if ($size=='50px') echo "selected "; ?>value="50px">M</option>
-		<option <?php if ($size=='40px') echo "selected "; ?>value="40px">S</option>
-		<option <?php if ($size=='32px') echo "selected "; ?>value="32px">XS</option>
-		</select>
-
-	<?php
-	}
-
-		/** 
-		 * Get the shape settings option and print it value
-		 */
-
-	public function shape_cb() {
-		$shape = esc_attr(get_option('fcfi_shape', 'circle'));
-
-		printf( '<select name="fcfi_shape"><option ' );
-		if ($shape=='circle') echo "selected ";
-		printf( 'value="circle">%s</option>',  esc_html__( 'Circle', 'manage-admin-columns' ) );
-		echo  '<option ';
-		if ($shape=='square') echo "selected ";
-		printf( 'value="square">%s</option>',  esc_html__( 'Square', 'manage-admin-columns' ) );
-		echo '</select>';
-	}
-
-		/** 
-		 * Get the border settings option and print it value
-		 */
-
-	public function border_cb() {
-		$border = esc_attr(get_option('fcfi_border', 'ON'));
-		if ($border=='ON') $checked=" checked "; else $checked="";
-		echo '<input type="hidden" name="fcfi_border" value="OFF" />
-		<input type="checkbox" name="fcfi_border" value="ON"'.$checked.'>
-		<span>'.esc_html__( 'Show border on hover', 'manage-admin-columns' ).'</span>';
-	}
-				/** 
 		 * Get the post types settings option array and print its values
 		 */
 	public function post_types_cb(array $args) {
