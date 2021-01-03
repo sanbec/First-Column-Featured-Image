@@ -216,9 +216,13 @@ class FeaturedImageColumn {
 		$post_types = get_post_types( $args, $output );
 		$post_types['post'] = 'post';
 		$post_types['page'] = 'page';
+		// excludes some known CPTs that shown the featured image 
 		if ( class_exists( 'WooCommerce' ) ) {
 			unset( $post_types['product'] );
 		}
+		if ( class_exists( 'EventON' ) ) {
+            unset( $post_types['ajde_events'] );
+        }		
 		$post_types = apply_filters( 'fcfi_post_types', $post_types, $args );
 		// register the post types setting
 		register_setting(
@@ -276,12 +280,9 @@ class FeaturedImageColumn {
 	 * @return array
 	 */
 	public static function add_featured_image_column( $columns ) {
-		reset($columns);
-		$select_column = array(key($columns) => current($columns));
-		$featim_column = array('featured_image' => __( 'Image', 'manage-admin-columns' ));
-		$columns = array_merge($select_column,$featim_column,$columns);
-		print_r($columns);
-		return $columns;
+		$select_column = array_splice( $columns, 0, 1 );
+		$featim_column = array('featured_image' => __( 'Image', 'manage-admin-columns' )); 
+		return array_merge($select_column,$featim_column,$columns);
 	}
 
 	/**
