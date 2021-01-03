@@ -61,7 +61,7 @@ class wpcmac_FeaturedImageColumn {
 			'fcfi-settings' // page on which to display the section
 		);
 		
-		public function style_cb( $args ) {
+		function style_cb( $args ) {
 		// echo section intro text here
 			echo __('Choose the size and shape of the featured image at the list table', 'manage-admin-columns');
 		}
@@ -114,7 +114,7 @@ class wpcmac_FeaturedImageColumn {
 			'fcfi-settings' // page on which to display the section
 		);
 
-		public function post_types_section_cb( $args ) {
+		function post_types_section_cb( $args ) {
 		// echo section intro text here
 			echo __('Select the post types where you want the featured image column to be displayed', 'manage-admin-columns');
 		}
@@ -282,7 +282,6 @@ class wpcmac_FeaturedImageColumn {
 	 * @param array $columns set up new column to show featured image for taxonomies/posts/etc.
 	 *
 	 * @return array
-	 * @since 1.0
 	 */
 	public function add_featured_image_column( $columns ) {
 
@@ -296,7 +295,6 @@ class wpcmac_FeaturedImageColumn {
 	 * Make the featured image column sortable.
 	 * @param $columns
 	 * @return mixed
-	 * @since 1.0
 	 */
 	public function make_sortable( $columns ) {
 		$columns['featured_image'] = 'featured_image';
@@ -306,7 +304,6 @@ class wpcmac_FeaturedImageColumn {
 	/**
 	 * Set a custom query to handle sorting by featured image
 	 * @param $query WP_Query
-	 * @since 1.0
 	 */
 	public function orderby( $query ) {
 		if ( ! is_admin() ) {
@@ -338,8 +335,6 @@ class wpcmac_FeaturedImageColumn {
 	 * manage new post_type column
 	 * @param  $column string $column  column id is featured_image
 	 * @param  $post_id int id of each post
-	 *
-	 * @since 1.0
 	 */
 	public function manage_image_column( $column, $post_id ) {
 
@@ -367,7 +362,6 @@ class wpcmac_FeaturedImageColumn {
 	 * @param $args array of values to pass to function ( image_id, context, alt_tag )
 	 *
 	 * @return string
-	 * @since 1.0
 	 */
 	protected function admin_column_image( $args ) {
 		$image_id = $args['image_id'];
