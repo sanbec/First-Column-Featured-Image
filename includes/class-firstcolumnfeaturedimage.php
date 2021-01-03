@@ -339,7 +339,7 @@ class FeaturedImageColumn {
 		}
 		$image_id = get_post_thumbnail_id( $post_id );
 		if ( ! $image_id ) {	
-			printf( '<img src="%1$s" alt="%2$s" title="%2$s" />', plugins_url( '/assets/sin-imagen.svg', __FILE__ ), esc_html__( 'No image', 'manage-admin-columns' ) );
+			printf( '<img class="noimage" src="%1$s" alt="%2$s" title="%2$s" />', plugins_url( '/assets/sin-imagen.svg', __FILE__ ), esc_html__( 'No image', 'manage-admin-columns' ) );
 			printf( '<span class="screen-reader-text">%s</span>', esc_html__( 'No image', 'manage-admin-columns' ) );
 			return;
 		}
@@ -385,6 +385,8 @@ class FeaturedImageColumn {
 		if ( in_array( $screen->base, array( 'edit' ), true ) ) { ?>
 			<style type="text/css">
 				.column-featured_image { width: 85px; }
+				.column-featured_image a.thickbox { box-shadow: none; }
+				.column-featured_image img.noimage { border:none; }
 				.column-featured_image img {
 					margin: 0 auto; 
 					width: <?=esc_attr(get_option('fcfi_size', '70px'));?>;
@@ -400,7 +402,7 @@ class FeaturedImageColumn {
 					.column-featured_image, .wp-list-table .is-expanded td.column-featured_image:not(.hidden) {display: table-cell !important; width: 52px;}
 					.column-featured_image.hidden { display: none !important;} 
 					.column-featured_image img { margin: 0; max-width: 42px;}
-					td.column-featured_image.featured_image::before { display: none !important;} 
+					td.column-featured_image::before { display: none !important;} 
 				}
 			</style> <?php
 		}
