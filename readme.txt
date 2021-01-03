@@ -1,5 +1,5 @@
 === Manage Admin Columns ===
-Contributors: @sanbec @wpcombo
+Contributors: sanbec, wpcombo
 Donate link: https://paypal.me/sanbec
 Tags: featured image, admin columns
 Requires at least: 4.1
@@ -7,7 +7,7 @@ Tested up to: 5.6
 Stable tag: 1.3.0
 Requires PHP: 7.0
 License: GPL 3.0 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.txt
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. 
@@ -15,14 +15,14 @@ This plugin adds a featured image column to WordPress Dashboard. It automaticall
 
 == Description ==
 
-This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. It's an improvement from the plugin [Add Featured Image Column] (https://wordpress.org/plugins/add-featured-image-column/).
+This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. It's an improvement from the plugin [Add Featured Image Column](https://wordpress.org/plugins/add-featured-image-column/).
 
 
 == Installation ==
 
-1. Upload the entire `add-featured-image-column` folder to your `/wp-content/plugins` directory.
+1. Upload the entire `manage-admin-columns` folder to your `/wp-content/plugins` directory.
 1. Activate the plugin through the 'Plugins' menu in WordPress.
-1. Optionally, visit the Settings > Media page to change the default behavior of the plugin.
+1. Optionally, visit the Settings > Manage Admin Columns to change the default behavior of the plugin.
 
 == Frequently Asked Questions ==
 

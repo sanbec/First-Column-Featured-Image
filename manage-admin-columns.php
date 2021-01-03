@@ -12,7 +12,7 @@
  * Plugin Name:       Manage Admin Columns
  * Plugin URI:        https://github.com/sanbec/manage-admin-columns
  * Description:       This plugin adds a featured image column to the WordPress admin.
- * Version:           1.0
+ * Version:           1.3.0
  * Author:            Santiago Becerra
  * Author URI:        https://wpcombo.com
  * Text Domain:       manage-admin-columns

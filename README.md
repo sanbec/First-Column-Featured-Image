@@ -2,7 +2,7 @@
 
 ## Description
 
-This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. It's an improvement from the plugin [Add Featured Image Column] (https://wordpress.org/plugins/add-featured-image-column/).
+This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. It's an improvement from the plugin [Add Featured Image Column](https://wordpress.org/plugins/add-featured-image-column/).
 
 
 ## Requirements
