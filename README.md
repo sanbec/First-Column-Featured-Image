@@ -36,14 +36,17 @@ Then go to your Plugins screen and click __Activate__.
 
 ## Screenshots
 
-![Circle, XL, border on hover posts featured images.](assets/screenshot-1.png)  
+![Circle, XL, border on hover posts featured images.](.wordpress-org/screenshot-1.png)  
 _Circle, XL, border on hover posts featured images_
 
-![Square, M, no border on hover posts featured images](assets/screenshot-2.png)  
+![Square, M, no border on hover posts featured images](.wordpress-org/screenshot-2.png)  
 _Square, M, no border on hover posts featured images._
 
-![Manage admin columns settings page](assets/screenshot-3.png)  
+![Manage admin columns settings page](.wordpress-org/screenshot-3.png)  
 _Manage admin columns settings page._
+
+![Featured Image Ligthbox](.wordpress-org/screenshot-3.png)  
+_Featured Image Ligthbox._
 
 ## Frequently Asked Questions
 

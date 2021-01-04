@@ -32,6 +32,7 @@ It's simple! Just activate, adjust settings and enjoy.
 1. Circle, XL, border on hover posts featured images
 1. Square, M, no border on hover posts featured images
 1. Manage admin columns settings page
+1. Featured Image Ligthbox
 
 == Upgrade Notice ==
 
