@@ -108,7 +108,7 @@ class FeaturedImageColumn {
  */
 
 	public static function admin_settings_init() {
-		add_thickbox();
+		if (esc_attr(get_option('fcfi_lightbox', 'ON'))=='ON') add_thickbox();
 
 		// Add the style settings section
 		add_settings_section(
@@ -160,7 +160,7 @@ class FeaturedImageColumn {
 		// Add the shape setting field on the style section
 		add_settings_field(
 			'shape-field', // id of the settings field
-			__('Shape: ', 'manage-admin-columns' ), // title
+			__('Shape:', 'manage-admin-columns' ), // title
 			'wpcombo\fcfi\shape_cb', // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
@@ -177,15 +177,36 @@ class FeaturedImageColumn {
 			printf( 'value="square">%s</option>',  esc_html__( 'Square', 'manage-admin-columns' ) );
 			echo '</select>';
 		}
+		// register the lightbox setting
+		register_setting(
+			'fcfi-settings', // option group
+			'fcfi_lightbox'
+		);
+		// Add the lightbox setting field on the style section
+		add_settings_field(
+			'lightbox-field', // id of the settings field
+			__('Lightbox', 'manage-admin-columns' ), // title
+			'wpcombo\fcfi\lightbox_cb', // callback function
+			'fcfi-settings', // page on which settings display
+			'settings-section-style' // section on which to show settings
+		);
+		// Callback to get the lightbox settings option and print it value
+		function lightbox_cb() {
+			$lightbox = esc_attr(get_option('fcfi_lightbox', 'ON'));
+			if ($lightbox=='ON') $checked=" checked "; else $checked="";	
+			echo '<input type="hidden" name="fcfi_lightbox" value="OFF" />
+			<input type="checkbox" name="fcfi_lightbox" value="ON"'.$checked.'>
+			<span>'.esc_html__( 'Open lightbox on image click', 'manage-admin-columns' ).'</span>';
+		}
 		// register the border setting
 		register_setting(
 			'fcfi-settings', // option group
 			'fcfi_border'
 		);
-		// Add the shape setting field on the style section
+		// Add the border setting field on the style section
 		add_settings_field(
 			'border-field', // id of the settings field
-			__('Border ', 'manage-admin-columns' ), // title
+			__('Border', 'manage-admin-columns' ), // title
 			'wpcombo\fcfi\border_cb', // callback function
 			'fcfi-settings', // page on which settings display
 			'settings-section-style' // section on which to show settings
@@ -371,7 +392,11 @@ class FeaturedImageColumn {
 		if ( ! $full ) {
 			return '';
 		}
-		return sprintf( '<a href="%1$s" class="thickbox"><img src="%2$s" alt="%3$s" /></a>', $full[0], $thumb[0], $args['alt'] );
+		if (esc_attr(get_option('fcfi_lightbox', 'ON'))=='ON') {
+			return sprintf( '<a href="%1$s" class="thickbox"><img src="%2$s" alt="%3$s" /></a>', $full[0], $thumb[0], $args['alt'] );
+		} else {
+			return sprintf( '<img src="%1$s" alt="%2$s" /></a>', $thumb[0], $args['alt'] );
+		}
 	}
 
 	/**

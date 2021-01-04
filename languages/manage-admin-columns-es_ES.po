@@ -2,11 +2,11 @@
 # This file is distributed under the same license as the Manage Admin Columns plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Manage Admin Columns 1.3.0\n"
+"Project-Id-Version: Manage Admin Columns 1.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/manage-admin-"
 "columns\n"
-"POT-Creation-Date: 2021-01-03T17:11:43+01:00\n"
-"PO-Revision-Date: 2021-01-03 17:18+0100\n"
+"POT-Creation-Date: 2021-01-04T01:22:42+01:00\n"
+"PO-Revision-Date: 2021-01-04 01:25+0100\n"
 "Last-Translator: Santiago Becerra <santi@wpcombo.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -52,56 +52,64 @@ msgstr "Ajustes de Manage Admin Columns"
 msgid "Featured Image Column"
 msgstr "Columna de imagen destacada"
 
-#: includes/class-firstcolumnfeaturedimage.php:114
+#: includes/class-firstcolumnfeaturedimage.php:116
 msgid "Style Settings"
 msgstr "Ajustes de estilo"
 
-#: includes/class-firstcolumnfeaturedimage.php:121
+#: includes/class-firstcolumnfeaturedimage.php:123
 msgid "Choose the size and shape of the featured image at the list table"
 msgstr "Elige el tamaño y la forma de la imagen destacada en la tabla de lista"
 
-#: includes/class-firstcolumnfeaturedimage.php:132
+#: includes/class-firstcolumnfeaturedimage.php:134
 msgid "Featured Image Size:"
 msgstr "Tamaño de imagen destacada:"
 
-#: includes/class-firstcolumnfeaturedimage.php:161
-msgid "Shape: "
-msgstr "Forma: "
+#: includes/class-firstcolumnfeaturedimage.php:163
+msgid "Shape:"
+msgstr "Forma:"
 
-#: includes/class-firstcolumnfeaturedimage.php:172
+#: includes/class-firstcolumnfeaturedimage.php:174
 msgid "Circle"
 msgstr "Círculo"
 
-#: includes/class-firstcolumnfeaturedimage.php:175
+#: includes/class-firstcolumnfeaturedimage.php:177
 msgid "Square"
 msgstr "Cuadrado"
 
-#: includes/class-firstcolumnfeaturedimage.php:186
-msgid "Border "
-msgstr "Borde "
+#: includes/class-firstcolumnfeaturedimage.php:188
+msgid "Lightbox"
+msgstr "Caja de luz"
 
-#: includes/class-firstcolumnfeaturedimage.php:197
+#: includes/class-firstcolumnfeaturedimage.php:199
+msgid "Open lightbox on image click"
+msgstr "Abre una caja de luz al hacer clic en la imagen"
+
+#: includes/class-firstcolumnfeaturedimage.php:209
+msgid "Border"
+msgstr "Borde"
+
+#: includes/class-firstcolumnfeaturedimage.php:220
 msgid "Show border on hover"
 msgstr "Mostrar borde al pasar el cursor"
 
-#: includes/class-firstcolumnfeaturedimage.php:202
+#: includes/class-firstcolumnfeaturedimage.php:225
 msgid "Post Types"
 msgstr "Tipos de contenido"
 
-#: includes/class-firstcolumnfeaturedimage.php:210
+#: includes/class-firstcolumnfeaturedimage.php:233
 msgid ""
 "Select the post types where you want the featured image column to be "
 "displayed"
 msgstr ""
-"Seleccione los tipos de contenido en los que quieres que se muestre la "
+"Selecciona los tipos de contenido en los que quieres que se muestre la "
 "columna de imagen destacada"
 
-#: includes/class-firstcolumnfeaturedimage.php:280
+#: includes/class-firstcolumnfeaturedimage.php:307
 msgid "Image"
 msgstr "Imagen"
 
-#: includes/class-firstcolumnfeaturedimage.php:338
-#: includes/class-firstcolumnfeaturedimage.php:339
+#: includes/class-firstcolumnfeaturedimage.php:363
+#: includes/class-firstcolumnfeaturedimage.php:364
 msgid "No image"
 msgstr "Sin imagen"
 
