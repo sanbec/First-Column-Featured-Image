@@ -4,7 +4,7 @@ Donate link: https://paypal.me/sanbec
 Tags: featured image, admin columns
 Requires at least: 4.1
 Tested up to: 5.6
-Stable tag: 1.3.0
+Stable tag: 1.4.0
 Requires PHP: 7.0
 License: GPL 3.0 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -35,10 +35,28 @@ It's simple! Just activate, adjust settings and enjoy.
 
 == Upgrade Notice ==
 
-= 1.3.0 =
-Enjoy the new setting: Now, you can remove the blue border on hover
+= 1.4.0 =
+*Enjoy the new features and settings: 
+**Open a lightbox when click on featured imagen
+**You can enable or disable the blue border on hover
+**You can enable or disable the lightbox feature
 
 == Changelog ==
+= 1.4.0 =
+* new: Lightbox setting
+* improvement: Remove border on hover for noimage placeholders
+* improvement: Simpler lightbox effect with tickbox
+
+= 1.3.1 =
+* new: The image columm opens in a Ligthbox on click
+* improvement: Move Image Column after the select checkbox
+* improvement: Changed function prefixes to namespaces
+* improvement: Convert class into static
+* improvement: Better code structure
+* improvement: Better code to order columns
+* fix: Wrong metadata
+* fix: Bad syntax
+
 = 1.3.0 =
 * new: setting to choose if the image border is shown on hover
 

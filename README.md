@@ -54,6 +54,23 @@ It's simple! Just activate, adjust settings and enjoy.
 * Built by [Santiago Becerra](https://wpcombo.com/)
 
 ## Changelog
+
+### 1.4.0
+* new: Lightbox setting
+* improvement: Remove border on hover for noimage placeholders
+* improvement: Simpler lightbox effect with tickbox
+
+### 1.3.1
+* new: The image columm opens in a Ligthbox on click
+* improvement: Move Image Column after the select checkbox
+* improvement: Changed function prefixes to namespaces
+* improvement: Convert class into static
+* improvement: Better code structure
+* improvement: Better code to order columns
+* fix: Wrong metadata
+* fix: Bad syntax
+
+
 ### 1.3.0
 * new: setting to choose if the image border is shown on hover
 
