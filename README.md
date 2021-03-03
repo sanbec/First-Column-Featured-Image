@@ -45,7 +45,7 @@ _Square, M, no border on hover posts featured images._
 ![Manage admin columns settings page](.wordpress-org/screenshot-3.png)  
 _Manage admin columns settings page._
 
-![Featured Image Ligthbox](.wordpress-org/screenshot-3.png)  
+![Featured Image Ligthbox](.wordpress-org/screenshot-4.png)  
 _Featured Image Ligthbox._
 
 ## Frequently Asked Questions
