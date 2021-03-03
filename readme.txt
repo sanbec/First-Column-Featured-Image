@@ -11,6 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 
 This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. 
+Planning of adding another column for the slug.
 
 
 == Description ==
