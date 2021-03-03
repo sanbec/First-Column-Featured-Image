@@ -6,7 +6,7 @@ This plugin adds a featured image column to WordPress Dashboard. It automaticall
 
 
 ## Requirements
-* WordPress 4.1, tested up to 5.6
+* WordPress 4.1, tested up to 5.7
 
 ## Installation
 
