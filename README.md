@@ -4,9 +4,15 @@
 
 This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. It's an improvement from the plugin [Add Featured Image Column](https://wordpress.org/plugins/add-featured-image-column/).
 
+* If the post has no featured image, it displays a "No image" svg icon to indicate this.
+* If the featured image is broken, it displays a red "Broken image" svg icon to indicate this.
+* The plugin opens a lightbox when click on featured image.
+* You can enable or disable the blue border on hover.
+* You can enable or disable the lightbox feature.
+* You can choose the shape and size of the thumbnail displayed at the dashboard.
 
 ## Requirements
-* WordPress 4.1, tested up to 5.7
+* WordPress 4.1, tested up to 6.0
 
 ## Installation
 
@@ -48,15 +54,22 @@ _Manage admin columns settings page._
 ![Featured Image Ligthbox](.wordpress-org/screenshot-4.png)  
 _Featured Image Ligthbox._
 
+![Icons for image broken and no image](.wordpress-org/screenshot-5.png)
+_Icons for image broken and no image_
+
 ## Frequently Asked Questions
 
-It's simple! Just activate, adjust settings and enjoy.
+It's simple! Just activate, and visit the Settings > Manage Admin Columns to change the default behavior of the plugin.
 
 ## Credits
 
-* Built by [Santiago Becerra](https://wpcombo.com/)
+* Built by [Santiago Becerra](https://elemendas.com/)
 
 ## Changelog
+
+### 1.5.0
+* new: If the featured image is broken or invalid, it displays a red icon to indicate this.
+
 
 ### 1.4.0
 * new: Lightbox setting

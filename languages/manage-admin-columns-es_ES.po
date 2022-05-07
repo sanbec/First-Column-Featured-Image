@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Manage Admin Columns 1.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/manage-admin-"
 "columns\n"
-"POT-Creation-Date: 2021-01-04T01:22:42+01:00\n"
-"PO-Revision-Date: 2021-01-04 01:25+0100\n"
+"POT-Creation-Date: 2022-05-07T20:48:15+02:00\n"
+"PO-Revision-Date: 2022-05-07 20:50+0200\n"
 "Last-Translator: Santiago Becerra <santi@wpcombo.com>\n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -112,6 +112,10 @@ msgstr "Imagen"
 #: includes/class-firstcolumnfeaturedimage.php:364
 msgid "No image"
 msgstr "Sin imagen"
+
+#: includes/class-firstcolumnfeaturedimage.php:395
+msgid "Broken image, please replace it"
+msgstr "Imagen rota, por favor, reemplázala"
 
 #~ msgid "Feat. Image Col. Settings"
 #~ msgstr "Ajustes de Image Column"

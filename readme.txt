@@ -1,49 +1,72 @@
 === Manage Admin Columns ===
-Contributors: sanbec, wpcombo
+Contributors: sanbec, elemendas
 Donate link: https://paypal.me/sanbec
 Tags: featured image, admin columns
 Requires at least: 5.0
-Tested up to: 5.7
-Stable tag: 1.4.0
-Requires PHP: 7.0
+Tested up to: 6.0
+Requires PHP: 5.6
+Stable tag: 1.5.0
 License: GPL 3.0 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-
 This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. 
 Planning of adding another column for the slug.
-
 
 == Description ==
 
 This plugin adds a featured image column to WordPress Dashboard. It automatically adds a column to any post type which supports a featured image. It's an improvement from the plugin [Add Featured Image Column](https://wordpress.org/plugins/add-featured-image-column/).
 
+* If the post has no featured image, it displays a "No image" svg icon to indicate this.
+* If the featured image is broken, it displays a red "Broken image" svg icon to indicate this.
+* The plugin opens a lightbox when click on featured image.
+* You can enable or disable the blue border on hover.
+* You can enable or disable the lightbox feature.
+* You can choose the shape and size of the thumbnail displayed at the dashboard.
+
 
 == Installation ==
 
-1. Upload the entire `manage-admin-columns` folder to your `/wp-content/plugins` directory.
-1. Activate the plugin through the 'Plugins' menu in WordPress.
-1. Optionally, visit the Settings > Manage Admin Columns to change the default behavior of the plugin.
+= Minimum Requirements =
+
+* WordPress 5.0 or greater
+* PHP version 5.6 or greater
+* MySQL version 5.0 or greater
+
+= We recommend your host supports: =
+
+* PHP version 7.0 or greater
+* MySQL version 5.6 or greater
+* WordPress Memory limit of 64 MB or greater (128 MB or higher is preferred)
+
+= Installation =
+
+Follow the steps below:
+
+1. From your WordPress dashboard -> Go to 'Plugins' -> 'Add new' screen.
+2. In the 'Search plugins...' field, enter "Manage Admin Columns" and choose it.
+3. Press 'Install Now'.
+4. After installation, click 'Activate'.
+
+Alternatively:
+1. Extract the zip file and drop the contents of the entire ``manage-admin-columns` folder in the `wp-content/plugins/` directory of your WordPress installation.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
 
 == Frequently Asked Questions ==
 
-It's simple! Just activate, adjust settings and enjoy.
+It's simple! Just activate, and visit the Settings > Manage Admin Columns to change the default behavior of the plugin.
 
 == Screenshots ==
 1. Circle, XL, border on hover posts featured images
 1. Square, M, no border on hover posts featured images
 1. Manage admin columns settings page
 1. Featured Image Ligthbox
-
-== Upgrade Notice ==
-
-= 1.4.0 =
-*Enjoy the new features and settings: 
-**Open a lightbox when click on featured imagen
-**You can enable or disable the blue border on hover
-**You can enable or disable the lightbox feature
+1. Icons for image broken and no image
 
 == Changelog ==
+
+= 1.5.0 =
+* new: If the featured image is broken or invalid, it displays a red icon to indicate this.
+
 = 1.4.0 =
 * new: Lightbox setting
 * improvement: Remove border on hover for noimage placeholders

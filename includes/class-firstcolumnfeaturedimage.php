@@ -5,8 +5,8 @@
  * @package   ManageAdminColumns
  * @author    Santiago Becerra <santi@wpcombo.com>
  * @license   GPL-3.0+
- * @link      https://wpcombo.com
- * @copyright 2019 WPCombo OÜ
+ * @link      https://elemendas.com
+ * @copyright 2022 Santiago Becerra
  */
 
 namespace wpcombo\fcfi;
@@ -373,6 +373,11 @@ class FeaturedImageColumn {
 
 		echo wp_kses_post( self::admin_column_image( $args ) );
 	}
+	private static function check_url($url) {
+		$headers = @get_headers( $url);
+		$headers = (is_array($headers)) ? implode( "\n ", $headers) : $headers;
+		return (bool)preg_match('#^HTTP/.*\s+[(200|301|302)]+\s#i', $headers);
+	}
 
 	/**
 	 * Generic function to return featured image
@@ -384,19 +389,18 @@ class FeaturedImageColumn {
 		$image_id = $args['image_id'];
 		$thumb  = wp_get_attachment_image_src( $image_id, 'thumbnail' );
 		$thumb  = apply_filters( 'fcfi_thumbnail', $thumb, $image_id );
-		if ( ! $thumb ) {
-			return '';
-		}
 		$full  = wp_get_attachment_image_src( $image_id, 'full' );
 		$full  = apply_filters( 'fcfi_thumbnail', $full, $image_id );
-		if ( ! $full ) {
-			return '';
+		if ( !($full && $thumb && self::check_url($full[0]) && self::check_url($thumb[0])) ) {
+			return sprintf('<img class="noimage" src="%1$s" alt="%2$s" title="%2$s" />', plugins_url( '/assets/broken.svg', __FILE__ ), esc_html__( 'Broken image, please replace it', 'manage-admin-columns' ) );
 		}
+
 		if (esc_attr(get_option('fcfi_lightbox', 'ON'))=='ON') {
 			return sprintf( '<a href="%1$s" class="thickbox"><img src="%2$s" alt="%3$s" /></a>', $full[0], $thumb[0], $args['alt'] );
 		} else {
 			return sprintf( '<img src="%1$s" alt="%2$s" /></a>', $thumb[0], $args['alt'] );
 		}
+
 	}
 
 	/**
